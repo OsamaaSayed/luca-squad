@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
+
+
 import "../styles/globals.css";
+import Footer from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
   title: "Luca Squad",
@@ -15,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+      <body>
+
+        {children}
+        <Footer/>
+      </body>
+    </html>
+  );
 }
