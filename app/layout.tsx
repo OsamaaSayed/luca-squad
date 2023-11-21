@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
+import Navbar from "@/components/shared/Navbar";
+
 import "../styles/globals.css";
+
 
 export const metadata: Metadata = {
   title: "Luca Squad",
@@ -15,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+
+      </body>
     </html>
   );
 }
