@@ -13,7 +13,7 @@ const ContactUs = () => {
   return (
     <>
       <Header bgImage="/images/contact/contact-bg.jpg" title="Contact Us" />
-      <section className="flex w-full flex-col px-10 pt-14 lg:flex-row md:px-24">
+      <section className="flex w-full flex-col container py-14 lg:flex-row mx-auto">
         <ContactInfo />
         <Article />
       </section>

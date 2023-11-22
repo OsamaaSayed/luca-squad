@@ -12,7 +12,7 @@ const About = () => {
   return (
     <>
       <Header bgImage="/images/about/about-bg.jpg" title="About Us" />
-      <section className="relative px-10 pt-14 md:px-24">
+      <section className="relative px-10 py-14 md:px-24">
         <div className="flex w-full flex-col gap-9  lg:flex-row">
           <Image
             src="/images/about/about-section.jpg"

@@ -11,7 +11,7 @@ const ContactInfo = () => {
       <p>Alternatively, </p>
       <p>you can contact us through the following methods:</p>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-2 sm:gap-6 sm:flex-row">
         <ContactMethod icon="/svg/contact/phone.svg" text="+39 377952237" />
 
         <ContactMethod
@@ -41,6 +41,5 @@ const ContactInfo = () => {
     </div>
   );
 };
-
 
 export default ContactInfo;
