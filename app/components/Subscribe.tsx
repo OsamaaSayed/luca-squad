@@ -1,6 +1,6 @@
 const Subscribe = () => {
   return (
-    <form className="ml-auto flex items-center gap-10">
+    <form className="xl:ml-auto flex items-center gap-10">
       <input
         type="text"
         placeholder="ENTER YOUR EMAIL"

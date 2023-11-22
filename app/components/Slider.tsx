@@ -1,34 +1,46 @@
 "use client";
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import { sliderItems } from "@/constants";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
+import "@/styles/slider.css";
 
 const Slider = () => {
   return (
-    <section className="w-full">
-      <div className=" h-screen">
-        <ul className="h-full w-full">
-          <Swiper
-            navigation
-            pagination={{ type: "bullets", clickable: true }}
-            autoplay={true}
-            loop={true}
-            modules={[Autoplay, Navigation, Pagination, EffectFade]}
-          >
-            {sliderItems.map(({ title, icon, img }) => (
-              <SwiperSlide key={title}></SwiperSlide>
-            ))}
-          </Swiper>
-        </ul>
-      </div>
-    </section>
+    <Swiper
+      navigation
+      // pagination={{ type: "bullets", clickable: true }}
+      autoplay={true}
+      loop={true}
+      modules={[Autoplay, Navigation, Pagination]}
+    >
+      {sliderItems.map(({ title, icon, img }) => (
+        <SwiperSlide key={title}>
+          <div className="flex flex-col items-center gap-4 sm:flex-row xl:gap-20">
+            <div className="m-auto flex-1 sm:ml-24">
+              <Image src={icon} alt="slider icon" width={64} height={64} />
+              <p className="font-semibold sm:text-3xl">{title}</p>
+            </div>
+
+            <div className="relative flex-1">
+              <Image
+                src={img}
+                alt="slider image"
+                width={710}
+                height={408}
+                className="object-contain sm:h-full sm:w-full"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 

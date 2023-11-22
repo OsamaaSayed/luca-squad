@@ -8,7 +8,7 @@ type ContactBoxProps = {
 
 const ContactBox = ({ item }: ContactBoxProps) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center w-[250px]">
       <div className="p-4">
         <Image src={item.url} alt="icon" width={36} height={36} />
       </div>

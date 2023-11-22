@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-between p-10 md:p-24 sm:flex-row">
+    <footer className="container mx-auto flex flex-col justify-between sm:flex-row">
       <div className="font-medium">
         <Image
           src="/images/footer/footer-logo.png"
@@ -54,7 +54,7 @@ const Footer = () => {
           />
         </Link>
       </div>
-    </div>
+    </footer>
   );
 };
 
