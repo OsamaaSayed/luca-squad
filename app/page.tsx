@@ -23,28 +23,28 @@ export default function Home() {
                 alt="logo"
                 width={110}
                 height={122}
-                className="duration-500 animate-in fade-in zoom-in"
+                // className="duration-500 animate-in fade-in zoom-in"
               />
               <Image
                 src="/svg/v-line.svg"
                 alt="line"
                 width={2}
                 height={80}
-                className="hidden h-20 w-1 delay-500 duration-500 animate-in fade-in zoom-in md:inline-block"
+                className="hidden h-20 w-1 md:inline-block"
               />
               <Image
                 src="/svg/luca.svg"
                 alt="luca"
                 width={260}
                 height={80}
-                className="delay-1000 duration-500 animate-in fade-in slide-in-from-left"
+                // className="delay-1000 duration-500 animate-in fade-in slide-in-from-left"
               />
               <Image
                 src="/svg/squad.svg"
                 alt="squad"
                 width={325}
                 height={100}
-                className="delay-[1500ms] duration-500 animate-in fade-in slide-in-from-left"
+                // className="delay-[1500ms] duration-500 animate-in fade-in slide-in-from-left"
               />
             </div>
             <div className="mt-3 text-center md:mt-0">

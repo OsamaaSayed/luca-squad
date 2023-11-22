@@ -26,6 +26,9 @@ const config: Config = {
       gridTemplateColumns: {
         fill: "repeat(auto-fill,minmax(0,1fr))",
       },
+      transitionDelay: {
+        "1500": "1500ms",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
