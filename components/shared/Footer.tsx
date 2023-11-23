@@ -15,11 +15,27 @@ const Footer = () => {
           />
         </Link>
 
-        <p>Via della Guastalla, 11-20122 Milano</p>
-        <p>+39 3779522376</p>
-        <p>info@Lucasquad.it</p>
+        <a
+          className='hover:underline'
+          href='https://goo.gl/maps/jqTi2D8nR9XeXRk1A'
+          target='_blank'
+        >
+          Via della Guastalla, 11-20122 Milano
+        </a>
+        <a
+          className='block hover:underline'
+          href='tel:+39 3779522376'
+        >
+          +39 3779522376
+        </a>
+        <a
+          className='block hover:underline'
+          href='mailto:info@lucasquad.it'
+        >
+          info@lucasquad.it
+        </a>
       </div>
-      <div className='mt-5 flex gap-4 sm:mt-auto'>
+      {/* <div className='mt-5 flex gap-4 sm:mt-auto'>
         <Link href='/'>
           <Image
             src='/svg/social/facebook.svg'
@@ -55,7 +71,7 @@ const Footer = () => {
             alt='logo'
           />
         </Link>
-      </div>
+      </div> */}
     </footer>
   );
 };

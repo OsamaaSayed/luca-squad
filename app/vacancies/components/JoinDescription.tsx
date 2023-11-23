@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 type JoinDescriptionProps = {
   title: string;
   description: string;
@@ -12,11 +10,14 @@ const JoinDescription = ({
 }: JoinDescriptionProps) => {
   return (
     <div>
-      <h3 className="text-[18px] font-bold">{title}</h3>
+      <h3 className='text-[18px] font-bold'>{title}</h3>
       <p>{description}</p>
-      <Link href={"mailto:"+ link} className="text-[#1882ff]">
+      <a
+        href={'mailto:' + link}
+        className='text-[#1882ff]'
+      >
         {link}
-      </Link>
+      </a>
     </div>
   );
 };

@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import ServiceBox from './components/ServiceBox';
 import ContactBox from './components/ContactBox';
-import Subscribe from './components/Subscribe';
 import SectionTitle from '@/components/shared/SectionTitle';
 import Slider from './components/Slider';
+import Subscribe from './components/Subscribe';
 
 import { contacts, services } from '@/constants';
 
@@ -90,6 +90,7 @@ export default function Home() {
               <ContactBox
                 key={item.title}
                 item={item}
+                href={item.href}
               />
             ))}
 
