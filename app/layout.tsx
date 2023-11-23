@@ -5,7 +5,6 @@ import Footer from "@/components/shared/Footer";
 
 import "../styles/globals.css";
 
-
 export const metadata: Metadata = {
   title: "Luca Squad",
   description:
@@ -22,8 +21,8 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
-    </html>
-  );
+    </html>
+  );
 }

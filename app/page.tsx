@@ -23,32 +23,33 @@ export default function Home() {
                 alt="logo"
                 width={110}
                 height={122}
-                // className="duration-500 animate-in fade-in zoom-in"
+                priority
+                className="delay-500 duration-500 ease-in-out animate-in fade-in zoom-in fill-mode-both"
               />
               <Image
                 src="/svg/v-line.svg"
                 alt="line"
                 width={2}
                 height={80}
-                className="hidden h-20 w-1 md:inline-block"
+                className="hidden h-20 w-1 delay-1000 duration-500 ease-in-out animate-in fade-in-0 zoom-in-0 fill-mode-both md:inline-block"
               />
               <Image
                 src="/svg/luca.svg"
                 alt="luca"
                 width={260}
                 height={80}
-                // className="delay-1000 duration-500 animate-in fade-in slide-in-from-left"
+                className="delay-1500 duration-500 ease-in-out animate-in fade-in slide-in-from-left fill-mode-both"
               />
               <Image
                 src="/svg/squad.svg"
                 alt="squad"
                 width={325}
                 height={100}
-                // className="delay-[1500ms] duration-500 animate-in fade-in slide-in-from-left"
+                className="delay-2000 duration-500 ease-in-out animate-in fade-in slide-in-from-left fill-mode-both"
               />
             </div>
             <div className="mt-3 text-center md:mt-0">
-              <p className="text-lg font-medium text-white">
+              <p className="delay-2500 text-lg font-medium text-white duration-500 animate-in fade-in slide-in-from-left fill-mode-both">
                 Where your construction dreams come to life{" "}
               </p>
             </div>
@@ -58,7 +59,7 @@ export default function Home() {
 
       <section>
         <div className="container mx-auto">
-          <div className="my-16">
+          <div className="my-16 flex xs:justify-center lg:justify-start">
             <SectionTitle primaryText="OUR" secondaryText="SERVICES" />
           </div>
 

@@ -4,7 +4,7 @@ import JoinDescription from "./JoinDescription";
 
 const JoinSection = () => {
   return (
-    <section className="flex flex-col justify-center gap-12 px-10 pt-14 md:px-24 xl:flex-row ">
+    <section className="container mx-auto flex flex-col justify-center gap-12 py-14 xl:flex-row ">
       <div className="flex flex-col gap-8">
         <SectionTitle primaryText="join" secondaryText="us" />
         <JoinDescription
@@ -23,7 +23,7 @@ const JoinSection = () => {
         width={591}
         height={652}
         alt="join us"
-        // className="w-[591px] sm:h-[652px]"
+        className="object-contain"
       />
     </section>
   );
