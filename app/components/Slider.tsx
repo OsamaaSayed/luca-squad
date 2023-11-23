@@ -15,10 +15,11 @@ const Slider = () => {
   return (
     <Swiper
       navigation
-      // pagination={{ type: "bullets", clickable: true }}
+      pagination={{ type: "bullets", clickable: true }}
       autoplay={true}
       loop={true}
       modules={[Autoplay, Navigation, Pagination]}
+      className="!pb-10"
     >
       {sliderItems.map(({ title, icon, img }) => (
         <SwiperSlide key={title}>
