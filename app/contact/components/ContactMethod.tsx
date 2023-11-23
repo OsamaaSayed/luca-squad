@@ -15,7 +15,7 @@ const ContactMethod = ({ icon, text, href }: ContactMethodProps) => {
         alt={icon}
       />
       <a
-        className='normal-case'
+        className='normal-case hover:underline'
         href={href}
       >
         {text}

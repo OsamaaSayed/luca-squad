@@ -14,7 +14,7 @@ const JoinDescription = ({
       <p>{description}</p>
       <a
         href={'mailto:' + link}
-        className='text-[#1882ff]'
+        className='text-[#1882ff] hover:underline'
       >
         {link}
       </a>
