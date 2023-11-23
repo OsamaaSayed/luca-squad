@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="container mx-auto flex flex-col justify-between sm:flex-row">
+    <footer className="container mx-auto flex flex-col justify-between sm:flex-row mb-24">
       <div className="font-medium">
         <Image
-          src="/images/footer/footer-logo.png"
+          src="/svg/footer-logo.svg"
           width={158}
           height={177}
           alt="logo"
