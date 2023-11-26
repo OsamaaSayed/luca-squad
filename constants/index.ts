@@ -53,8 +53,8 @@ export const contacts = [
   {
     url: '/svg/home/email.svg',
     title: 'EMAIL',
-    body: 'info@lucasquad.com',
-    href: 'mailto:info@lucasquad.com',
+    body: 'info@lucasquad.it',
+    href: 'mailto:info@lucasquad.it',
   },
   {
     url: '/svg/home/phone.svg',
