@@ -94,7 +94,7 @@ export default function Home() {
               />
             ))}
 
-            <Subscribe />
+            {/* <Subscribe /> */}
           </div>
         </div>
       </section>

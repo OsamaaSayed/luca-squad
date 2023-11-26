@@ -59,8 +59,8 @@ export const contacts = [
   {
     url: '/svg/home/phone.svg',
     title: 'CALL US',
-    body: '1-800-312-2121',
-    href: 'tel:+1-800-312-2121',
+    body: '39 3779522376',
+    href: 'tel:+39 3779522376',
   },
 ];
 
