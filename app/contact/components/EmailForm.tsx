@@ -179,7 +179,7 @@ function EmailForm() {
             />
 
             <button
-              className='text-base mt-3 md:text-lg font-bold w-1/2 md:w-1/3 m-auto bg-white rounded-lg py-2 px-3 hover:bg-primary hover:text-white transition-all duration-300 disabled:bg-[#DCDCDC]'
+              className='text-base mt-3 md:text-lg font-bold w-1/2 md:w-1/3 m-auto bg-white rounded-lg py-2 px-3 hover:bg-ls-primary hover:text-white transition-all duration-300 disabled:bg-[#DCDCDC]'
               disabled={isLoading}
             >
               {isLoading ? (

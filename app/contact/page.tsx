@@ -22,7 +22,7 @@ const ContactUs = () => {
         <ContactInfo />
         <Article />
       </section>
-      <EmailForm />
+      {/* <EmailForm /> */}
     </>
   );
 };
