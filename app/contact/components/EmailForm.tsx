@@ -61,7 +61,7 @@ function EmailForm() {
       });
       console.log(res);
 
-      if (!res.ok) throw new Error('Something went wrong, please try again');
+      if (!res.ok) throw new Error('Something went wrong, Please try again');
 
       // alert('Email sent successfully!');
       toast.success('Email sent successfully!', {
@@ -81,7 +81,7 @@ function EmailForm() {
       //   err,
       // );
       // alert('Something went wrong, please try again');
-      toast.success('Something went wrong, please try again.', {
+      toast.success('Something went wrong, Please try again.', {
         style: {
           border: '1px solid #1A1A1A',
           padding: '16px',
@@ -107,7 +107,7 @@ function EmailForm() {
           >
             <input
               {...register('username', {
-                required: 'please enter your username',
+                required: 'Please enter your username',
               })}
               className={`focus:outline-primary text-primary py-2 ${
                 errors?.username && 'border-2 focus:outline-0'
@@ -129,7 +129,7 @@ function EmailForm() {
 
             <input
               {...register('email', {
-                required: 'please enter your email',
+                required: 'Please enter your email',
                 pattern: {
                   value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                   message: 'Please enter a valid email format',
@@ -155,11 +155,11 @@ function EmailForm() {
               {...register('mobileNumber', {
                 required: 'Please enter your mobile number',
                 pattern: {
-                  value: /^39\d*$/,
+                  value: /^\+39\d*$/,
                   message:
-                    'Please enter a valid mobile number starting with 39',
+                    'Please enter a valid mobile number starting with +39',
                 },
-                maxLength: 12,
+                maxLength: 13,
                 onChange: () => {
                   trigger('mobileNumber');
                 },
@@ -200,7 +200,7 @@ function EmailForm() {
 
             <textarea
               {...register('request', {
-                required: 'please enter your request',
+                required: 'Please enter your request',
               })}
               className={`focus:outline-primary text-primary mb-2 mt-3 h-48 resize-none px-4 py-2 ${
                 errors?.request &&
