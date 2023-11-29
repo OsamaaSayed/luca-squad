@@ -29,7 +29,7 @@ function EmailForm() {
     register,
     handleSubmit,
     formState: { errors },
-    trigger
+    trigger,
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = async (formData) => {
@@ -153,17 +153,22 @@ function EmailForm() {
 
             <input
               {...register('mobileNumber', {
-                required: 'please enter your mobile number',
+                required: 'Please enter your mobile number',
                 pattern: {
-                  value: /^\d+$/,
-                  message: 'Please enter a valid mobile number',
+                  value: /^39\d*$/,
+                  message:
+                    'Please enter a valid mobile number starting with 39',
+                },
+                maxLength: 12,
+                onChange: () => {
+                  trigger('mobileNumber');
                 },
               })}
               className={`focus:outline-primary text-primary px-4 py-2 ${
                 errors?.mobileNumber &&
                 'border-2 border-solid border-red-600 focus:outline-0'
               }`}
-              placeholder='Mobile Number'
+              placeholder='Mobile Number: +390297134070'
               type='text'
               name='mobileNumber'
               onKeyDown={(event) => {
@@ -179,7 +184,12 @@ function EmailForm() {
             <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
               {errors?.mobileNumber?.message}
             </p>
-
+            {errors.mobileNumber &&
+              errors.mobileNumber.type === 'maxLength' && (
+                <span className='mb-2 text-sm leading-none text-red-600 md:text-base'>
+                  Max length exceeded
+                </span>
+              )}
             <input
               {...register('available_time')}
               className='focus:outline-primary text-primary px-4 py-2'
