@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Navbar from "@/components/shared/Navbar";
-import Footer from "@/components/shared/Footer";
-
-import "../styles/globals.css";
+import Navbar from '@/components/shared/Navbar';
+import Footer from '@/components/shared/Footer';
+import { Toaster } from 'react-hot-toast';
+import '../styles/globals.css';
 
 export const metadata: Metadata = {
-  title: "Luca Squad",
+  title: 'Luca Squad',
   description:
-    "A state-of-the-art construction company with an established reputation for excellence and integrity.",
+    'A state-of-the-art construction company with an established reputation for excellence and integrity.',
 };
 
 export default function RootLayout({
@@ -17,11 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
         <Navbar />
         {children}
         <Footer />
+        <Toaster
+          position='top-center'
+          reverseOrder={false}
+        />
       </body>
     </html>
   );

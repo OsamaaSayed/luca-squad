@@ -18,11 +18,13 @@ const ContactUs = () => {
         bgImage='/images/contact/contact-bg.jpg'
         title='Contact Us'
       />
-      <section className='container mx-auto flex w-full flex-col py-14 lg:flex-row'>
-        <ContactInfo />
+      <section className='container mx-auto flex w-full flex-col  py-14 '>
         <Article />
+        <div className=' bg-ls-primary grid grid-cols-1 md:grid-cols-2'>
+          <EmailForm />
+          <ContactInfo />
+        </div>
       </section>
-      {/* <EmailForm /> */}
     </>
   );
 };

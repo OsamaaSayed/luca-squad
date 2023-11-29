@@ -1,7 +1,8 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 // import { Header } from '@root/renderer/components/NewHeader';
 // import MobileNav from '@root/renderer/components/MobileNav';
@@ -61,13 +62,36 @@ function EmailForm() {
 
       if (!res.ok) throw new Error('Something went wrong, please try again');
 
-      alert('Email sent successfully!');
+      // alert('Email sent successfully!');
+      toast.success('Email sent successfully!', {
+        style: {
+          border: '1px solid #1A1A1A',
+          padding: '16px',
+          color: '#1A1A1A',
+        },
+        iconTheme: {
+          primary: '#1A1A1A',
+          secondary: '#FFFAEE',
+        },
+      });
+
     } catch (err) {
-      console.log(
-        '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
-        err
-      );
-      alert('Something went wrong, please try again');
+      // console.log(
+      //   '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
+      //   err,
+      // );
+      // alert('Something went wrong, please try again');
+      toast.success('Something went wrong, please try again.', {
+        style: {
+          border: '1px solid #1A1A1A',
+          padding: '16px',
+          color: '#1A1A1A',
+        },
+        iconTheme: {
+          primary: '#1A1A1A',
+          secondary: '#FFFAEE',
+        },
+      });
     } finally {
       setIsLoading(false);
     }
@@ -75,57 +99,27 @@ function EmailForm() {
 
   return (
     <>
-     
-
-      <section
-        className='flex justify-center items-center'
-        // style={{
-        //   background: `url("${BG}") no-repeat center`,
-        //   backgroundSize: 'cover',
-        // }}
-      >
-        <div className='container md:px-10 flex flex-col  gap-4 md:flex-row'>
-          {/* <h1 className='text-white font-bold text-4xl text-center md:text-7xl'>
-            Contact <br /> with us
-          </h1> */}
-
+      <section className='flex flex-1 items-center justify-center max-md:order-last'>
+        <div className='container  flex flex-col gap-4  p-8 md:flex-row'>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className='flex flex-col w-[80%] md:w-[40%]'
+            className='flex w-full flex-col'
           >
             <input
               {...register('username', {
                 required: 'please enter your username',
               })}
-              className={`px-4 py-2 rounded-lg focus:outline-primary text-primary ${
-                errors?.username &&
-                'border-2 border-solid border-red-600 focus:outline-0'
-              }`}
+              className={`focus:outline-primary text-primary py-2 ${
+                errors?.username && 'border-2 focus:outline-0'
+              }  border-solid border-red-600
+              px-4`}
               placeholder='Your Name'
               type='text'
               name='username'
             />
 
-            <p className='text-red-600 mt-1 mb-2 leading-none text-sm md:text-base'>
+            <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
               {errors?.username?.message}
-            </p>
-
-            <textarea
-              {...register('request', {
-                required: 'please enter your request',
-              })}
-              className={`px-4 py-2 rounded-lg resize-none focus:outline-primary text-primary ${
-                errors?.request &&
-                'border-2 border-solid border-red-600 focus:outline-0'
-              }`}
-              placeholder='Request'
-              name='request'
-              rows={3}
-              cols={10}
-            ></textarea>
-
-            <p className='text-red-600 mt-1 mb-2 leading-none text-sm md:text-base'>
-              {errors?.request?.message}
             </p>
 
             <input
@@ -136,7 +130,7 @@ function EmailForm() {
                   message: 'Please enter a valid email format',
                 },
               })}
-              className={`px-4 py-2 rounded-lg focus:outline-primary text-primary ${
+              className={`focus:outline-primary text-primary  px-4 py-2 ${
                 errors?.email &&
                 'border-2 border-solid border-red-600 focus:outline-0'
               }`}
@@ -145,7 +139,7 @@ function EmailForm() {
               name='email'
             />
 
-            <p className='text-red-600 mt-1 mb-2 leading-none text-sm md:text-base'>
+            <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
               {errors?.email?.message}
             </p>
 
@@ -157,7 +151,7 @@ function EmailForm() {
                   message: 'Please enter a valid mobile number',
                 },
               })}
-              className={`px-4 py-2 rounded-lg focus:outline-primary text-primary ${
+              className={`focus:outline-primary text-primary px-4 py-2 ${
                 errors?.mobileNumber &&
                 'border-2 border-solid border-red-600 focus:outline-0'
               }`}
@@ -166,27 +160,45 @@ function EmailForm() {
               name='mobileNumber'
             />
 
-            <p className='text-red-600 mt-1 mb-2 leading-none text-sm md:text-base'>
+            <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
               {errors?.mobileNumber?.message}
             </p>
 
             <input
               {...register('available_time')}
-              className='px-4 py-2 rounded-lg focus:outline-primary text-primary'
+              className='focus:outline-primary text-primary px-4 py-2'
               placeholder='Available time to connect'
               type='text'
               name='available_time'
             />
 
+            <textarea
+              {...register('request', {
+                required: 'please enter your request',
+              })}
+              className={`focus:outline-primary text-primary mb-2 mt-3 resize-none px-4 py-2 h-48 ${
+                errors?.request &&
+                'border-2 border-solid border-red-600 focus:outline-0'
+              }`}
+              placeholder='Request'
+              name='request'
+              rows={3}
+              cols={10}
+            ></textarea>
+
+            <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
+              {errors?.request?.message}
+            </p>
+
             <button
-              className='text-base mt-3 md:text-lg font-bold w-1/2 md:w-1/3 m-auto bg-white rounded-lg py-2 px-3 hover:bg-ls-primary hover:text-white transition-all duration-300 disabled:bg-[#DCDCDC]'
+              className='mt-3 w-1/2  border border-white bg-ls-primary px-3 py-2 text-base font-medium text-white transition-all duration-300 hover:bg-ls-primary hover:text-white disabled:bg-[#DCDCDC] md:w-1/3 md:text-lg'
               disabled={isLoading}
             >
               {isLoading ? (
                 <svg
                   aria-hidden='true'
                   role='status'
-                  className='inline w-5 h-5 animate-spin'
+                  className='inline h-5 w-5 animate-spin'
                   viewBox='0 0 100 101'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -207,7 +219,6 @@ function EmailForm() {
           </form>
         </div>
       </section>
-
     </>
   );
 }
