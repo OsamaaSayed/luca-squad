@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Header from '@/components/shared/Header';
 import ContactInfo from './components/ContactInfo';
 import Article from './components/Article';
+import EmailForm from './components/EmailForm';
 
 export const metadata: Metadata = {
   title: 'Luca Squad | Contact Us',
@@ -21,6 +22,7 @@ const ContactUs = () => {
         <ContactInfo />
         <Article />
       </section>
+      <EmailForm />
     </>
   );
 };

@@ -20,7 +20,7 @@ const Footer = () => {
           href='https://goo.gl/maps/jqTi2D8nR9XeXRk1A'
           target='_blank'
         >
-          Via della Guastalla, 11-20122 Milano
+          Via della Guastalla, 11-20122 Milano (Mi)
         </a>
         <a
           className='block hover:underline'

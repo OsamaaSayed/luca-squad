@@ -47,7 +47,7 @@ export const contacts = [
   {
     url: '/svg/home/address-2.svg',
     title: 'ADDRESS',
-    body: '790 FOLSOM AVE, MILANO',
+    body: 'Via della Guastalla, 11-20122 Milano (Mi)',
     href: 'https://goo.gl/maps/jqTi2D8nR9XeXRk1A',
   },
   {
@@ -59,7 +59,7 @@ export const contacts = [
   {
     url: '/svg/home/phone.svg',
     title: 'CALL US',
-    body: '39 3779522376',
+    body: '+39 3779522376',
     href: 'tel:+39 3779522376',
   },
 ];
