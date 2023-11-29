@@ -24,9 +24,9 @@ const Footer = () => {
         </a>
         <a
           className='block hover:underline'
-          href='tel:+39 3779522376'
+          href='tel:+390297134070'
         >
-          +39 3779522376
+          +39 0297134070
         </a>
         <a
           className='block hover:underline'

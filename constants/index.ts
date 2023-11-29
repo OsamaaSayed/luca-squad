@@ -59,8 +59,8 @@ export const contacts = [
   {
     url: '/svg/home/phone.svg',
     title: 'CALL US',
-    body: '+39 3779522376',
-    href: 'tel:+39 3779522376',
+    body: '+39 0297134070',
+    href: 'tel:+390297134070',
   },
 ];
 
