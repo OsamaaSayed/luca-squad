@@ -29,6 +29,7 @@ function EmailForm() {
     register,
     handleSubmit,
     formState: { errors },
+    trigger
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = async (formData) => {
@@ -117,7 +118,7 @@ function EmailForm() {
               name='username'
               onKeyDown={(event) => {
                 if (!/^[a-zA-Z]*$/.test(event.key)) {
-                  event.preventDefault(); 
+                  event.preventDefault();
                 }
               }}
             />
@@ -132,6 +133,9 @@ function EmailForm() {
                 pattern: {
                   value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                   message: 'Please enter a valid email format',
+                },
+                onChange: () => {
+                  trigger('email');
                 },
               })}
               className={`focus:outline-primary text-primary  px-4 py-2 ${
@@ -163,6 +167,9 @@ function EmailForm() {
               type='text'
               name='mobileNumber'
               onKeyDown={(event) => {
+                if (event.key === 'Backspace' || event.key === 'Tab') {
+                  return;
+                }
                 if (!/[\d+]/.test(event.key)) {
                   event.preventDefault();
                 }
