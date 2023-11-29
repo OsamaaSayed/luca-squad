@@ -34,8 +34,8 @@ const ContactInfo = () => {
           alt='letter'
         />
         <span>
-          You can find us at our office located at Via della Guastalla, 11,
-          Milan.
+          You can find us at our office located at Via della Guastalla, 11-20122
+          Milano (Mi).
         </span>
       </div>
       <iframe

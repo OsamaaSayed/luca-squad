@@ -74,7 +74,6 @@ function EmailForm() {
           secondary: '#FFFAEE',
         },
       });
-
     } catch (err) {
       // console.log(
       //   '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
@@ -116,6 +115,11 @@ function EmailForm() {
               placeholder='Your Name'
               type='text'
               name='username'
+              onKeyDown={(event) => {
+                if (!/^[a-zA-Z]*$/.test(event.key)) {
+                  event.preventDefault(); 
+                }
+              }}
             />
 
             <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
@@ -158,6 +162,11 @@ function EmailForm() {
               placeholder='Mobile Number'
               type='text'
               name='mobileNumber'
+              onKeyDown={(event) => {
+                if (!/[\d+]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
             />
 
             <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
@@ -176,7 +185,7 @@ function EmailForm() {
               {...register('request', {
                 required: 'please enter your request',
               })}
-              className={`focus:outline-primary text-primary mb-2 mt-3 resize-none px-4 py-2 h-48 ${
+              className={`focus:outline-primary text-primary mb-2 mt-3 h-48 resize-none px-4 py-2 ${
                 errors?.request &&
                 'border-2 border-solid border-red-600 focus:outline-0'
               }`}
