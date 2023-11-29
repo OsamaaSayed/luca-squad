@@ -46,7 +46,7 @@ export const services = [
 export const contacts = [
   {
     url: '/svg/home/address-2.svg',
-    title: 'ADDRESS',
+    title: 'OUR ADDRESS',
     body: 'Via della Guastalla, 11-20122 Milano (Mi)',
     href: 'https://goo.gl/maps/jqTi2D8nR9XeXRk1A',
   },

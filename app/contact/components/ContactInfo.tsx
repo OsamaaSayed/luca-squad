@@ -15,8 +15,8 @@ const ContactInfo = () => {
       <div className='flex flex-col gap-2 sm:flex-row sm:gap-6'>
         <ContactMethod
           icon='/svg/contact/phone.svg'
-          text='+39 377952237'
-          href='tel:+39 377952237'
+          text='+39 3779522376'
+          href='tel:+39 3779522376'
         />
 
         <ContactMethod
