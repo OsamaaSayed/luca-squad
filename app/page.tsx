@@ -5,10 +5,18 @@ import ContactBox from './components/ContactBox';
 import SectionTitle from '@/components/shared/SectionTitle';
 import Slider from './components/Slider';
 import Subscribe from './components/Subscribe';
-
+import { getDictionary } from '@/lib/dictionary';
+import { Locale } from '@/i18n.config';
 import { contacts, services } from '@/constants';
 
-export default function Home() {
+export default async function Home({
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
+  console.log(lang);
+  const { page } = await getDictionary(lang);
+  
   return (
     <main>
       <section
