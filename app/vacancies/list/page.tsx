@@ -13,6 +13,7 @@ const page = () => {
         {[1, 2, 4, 5, 6, 7].map((_, index) => {
           return (
             <JobComponent
+              id={`${index + 1}`}
               key={index}
               title={`title`}
               location={`location`}
