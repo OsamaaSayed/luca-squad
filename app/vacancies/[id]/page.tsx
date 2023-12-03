@@ -1,3 +1,12 @@
-export default function VacancyDetails() {
-  return <h1>gameed</h1>;
+import Header from '@/components/shared/Header';
+
+export default function Page({ params }: { params: { id: string } }) {
+  return (
+    <section className=' '>
+      <Header
+        bgImage='/images/vacancies/vacancies-bg.jpg'
+        title='Vacancies'
+      ></Header>
+    </section>
+  );
 }
