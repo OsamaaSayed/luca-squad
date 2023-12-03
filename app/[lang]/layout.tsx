@@ -6,7 +6,7 @@ import Footer from '@/components/shared/Footer';
 import { Locale, i18n } from '@/i18n.config'
 
 import { Toaster } from 'react-hot-toast';
-// import '../styles/globals.css';
+import '../../styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Luca Squad',
