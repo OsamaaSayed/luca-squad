@@ -1,18 +1,18 @@
-import SectionTitle from "@/components/shared/SectionTitle";
-import React from "react";
+import SectionTitle from '@/components/shared/SectionTitle';
 
-const AboutSection = () => {
+import { getDictionary } from '@/lib/dictionary';
+import { Locale } from '@/i18n.config';
+
+const AboutSection = async ({ lang }: { lang: Locale }) => {
+  const { page } = await getDictionary(lang);
   return (
-    <div className="flex-1">
-      <SectionTitle primaryText="Welcome to " secondaryText=" Luca Squad" />
-      <p className="mt-10 bg-[#272727] p-5 text-[18px] font-medium text-white xl:w-[610px] xl:-translate-x-24 xl:mt-3">
-        A state-of-the-art construction company with an established reputation
-        for excellence and integrity. Founded in Milan, Italy, we are committed
-        to the construction industry with an emphasis on precision, innovation
-        and customer satisfaction. Every project we undertake reflects our
-        dedication to detail and quality, while our decades of experience enable
-        us to successfully tackle a wide range of projects, from luxury
-        residential complexes to commercial renovations.
+    <div className='flex-1'>
+      <SectionTitle
+        primaryText={page.about.subTitleP1}
+        secondaryText={page.about.subTitleP2}
+      />
+      <p className='mt-10 bg-[#272727] p-5 text-[18px] font-medium text-white xl:mt-3 xl:w-[610px] xl:-translate-x-24'>
+        {page.about.firstParagraph}
       </p>
     </div>
   );

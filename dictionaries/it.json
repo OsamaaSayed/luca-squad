@@ -1,0 +1,166 @@
+{
+  "navigationLinks": [
+    { "label": "Home", "path": "/" },
+    { "label": "Chi siamo", "path": "/about" },
+    { "label": "Lavora con noi", "path": "/vacancies" },
+    { "label": "Contattaci", "path": "/contact" }
+  ],
+  "page": {
+    "home": {
+      "title": "Luca Squad",
+      "subTitle": "Dove i tuoi sogni di costruzione prendono vita.",
+      "headingP1": "I NOSTRI",
+      "headingP2": "Servizi",
+      "services": [
+        {
+          "url": "/svg/home/address.svg",
+          "title": "Costruzione di residenze private",
+          "body": "Realizziamo nuove costruzioni di case e ville su misura, seguendo le preferenze e le esigenze dei nostri clienti. Cerchiamo di creare ambienti abitativi funzionali, esteticamente piacevoli e di alta qualità."
+        },
+        {
+          "url": "/svg/home/apartment.svg",
+          "title": "Edifici commerciali",
+          "body": "Siamo specializzati nella costruzione di edifici commerciali, come uffici, negozi e strutture per l'ospitalità. Collaboriamo con architetti e designer per creare spazi che soddisfino le esigenze specifiche dei nostri clienti e offrano un ambiente accogliente per i loro clienti e dipendenti."
+        },
+        {
+          "url": "/svg/home/house.svg",
+          "title": "Ristrutturazioni",
+          "body": "Offriamo servizi di ristrutturazione per case, appartamenti, uffici e locali commerciali. Possiamo trasformare gli spazi esistenti, modernizzarli e adattarli alle esigenze attuali."
+        },
+        {
+          "url": "/svg/home/home.svg",
+          "title": "Restauro e Conservazione",
+          "body": "Abbiamo competenze nel restauro di edifici storici e nel lavoro di conservazione, preservando l'integrità e il valore storico delle proprietà."
+        },
+        {
+          "url": "/svg/home/city.svg",
+          "title": "Costruzione sostenibile",
+          "body": "Ci impegniamo in progetti di costruzione sostenibile, utilizzando materiali ecologici e pratiche costruttive che riducono l'impatto sull'ambiente."
+        },
+        {
+          "url": "/svg/home/pm.svg",
+          "title": "Gestione progetti",
+          "body": "Offriamo servizi di gestione progetti per coordinare tutte le fasi della costruzione, garantendo una pianificazione efficace, controllo dei costi e attenta supervisione per assicurare il successo del progetto."
+        },
+        {
+          "url": "/svg/home/consulting.svg",
+          "title": "Consulenza e pianificazione",
+          "body": "Il nostro team di esperti fornisce consulenza e supporto nella pianificazione del progetto, aiutandoti a definire gli obiettivi, il budget e a sviluppare un piano d'azione."
+        }
+      ],
+      "contacts": [
+        {
+          "url": "/svg/home/address-2.svg",
+          "title": "IL NOSTRO INDIRIZZO",
+          "body": "Via della Guastalla, 11-20122 Milano (MI)",
+          "href": "https://goo.gl/maps/jqTi2D8nR9XeXRk1A"
+        },
+        {
+          "url": "/svg/home/email.svg",
+          "title": "EMAIL",
+          "body": "info@lucasquad.it",
+          "href": "mailto:info@lucasquad.it"
+        },
+        {
+          "url": "/svg/home/phone.svg",
+          "title": "Cellulare",
+          "body": "+39 0297134070",
+          "href": "tel:+390297134070"
+        }
+      ],
+      "sliderItems": [
+        {
+          "icon": "/svg/home/address.svg",
+          "title": "Costruzione di residenze private",
+          "img": "/images/home/slider/1.jpg"
+        },
+        {
+          "icon": "/svg/home/apartment.svg",
+          "title": "Edifici commerciali",
+          "img": "/images/home/slider/2.jpg"
+        },
+        {
+          "icon": "/svg/home/house.svg",
+          "title": "Ristrutturazioni",
+          "img": "/images/home/slider/3.jpg"
+        },
+        {
+          "icon": "/svg/home/home.svg",
+          "title": "Restauro e Conservazione",
+          "img": "/images/home/slider/4.jpg"
+        },
+        {
+          "icon": "/svg/home/city.svg",
+          "title": "Costruzione sostenibile",
+          "img": "/images/home/slider/5.jpg"
+        },
+        {
+          "icon": "/svg/home/pm.svg",
+          "title": "Gestione progetti",
+          "img": "/images/home/slider/6.jpg"
+        },
+        {
+          "icon": "/svg/home/consulting.svg",
+          "title": "Consulenza e pianificazione",
+          "img": "/images/home/slider/7.jpg"
+        }
+      ]
+    },
+    "about": {
+      "title": "Chi siamo",
+      "subTitleP1": "Benvenuti alla",
+      "subTitleP2": "LUCA SQUAD",
+      "firstParagraph": "un'impresa di costruzioni all'avanguardia con una reputazione consolidata di eccellenza e integrità. Fondata a Milano, siamo impegnati nel settore delle costruzioni con un'attenzione particolare alla precisione, all'innovazione e alla soddisfazione del cliente. Ogni progetto che realizziamo riflette la nostra dedizione ai dettagli e alla qualità, mentre la nostra esperienza decennale ci permette di affrontare con successo un'ampia gamma di progetti, dai complessi residenziali di lusso alle ristrutturazioni commerciali.",
+      "secondParagraph": "Siamo guidati da una filosofia che si concentra sull'integrità e sull'impegno per l'eccellenza. Il nostro team è composto da professionisti qualificati in grado di affrontare sfide complesse con competenza e creatività. Ogni progetto rappresenta per noi un'opportunità per dimostrare la nostra capacità di produrre lavori duraturi e di alta qualità. La nostra missione è superare le aspettative dei clienti attraverso un impegno costante verso l'innovazione e l'eccellenza, mantenendo elevati standard etici."
+    },
+    "contact": {
+      "title": "Contattateci",
+      "subTitle": "Siamo lieti di rispondere a tutte le vostre domande e di discutere le vostre esigenze di costruzione.",
+      "subTitleDescription": "Non esitate a contattarci per richieste di preventivi, consulenze o per avere maggiori informazioni sulle nostre competenze e sui nostri servizi. Saremo pronti ad assistervi.",
+      "contactInfo": {
+        "title": "Saremo lieti di accogliervi e di fornirvi tutte le informazioni necessarie.",
+        "paragraph": "In alternativa, potete contattarci attraverso i seguenti metodi:",
+        "findUs": "Potete trovarci presso il nostro ufficio in Via della Guastalla, 11 a Milano (Mi)."
+      },
+      "contactForm": {
+        "placeholders": {
+          "name": "Il Tuo Nome",
+          "email": "E-Mail",
+          "mobile": "Numero di Telefono: +390297134070",
+          "available": "Orario Disponibile per Collegarsi",
+          "request": "Richiesta"
+        },
+        "errors": {
+          "usernameError": "Inserisci il tuo nome utente",
+          "emailError": "Inserisci la tua email",
+          "validEmailError": "Inserisci un formato email valido",
+          "mobileError": "Inserisci il tuo numero di telefono",
+          "validMobileError": "Inserisci un numero di telefono valido inizia con +39",
+          "maxLengthError": "Lunghezza massima superata",
+          "requestError": "Inserisci la tua richiesta"
+        },
+        "submit": "Invia",
+        "submitError": "Qualcosa è andato storto. Riprova, per favore.",
+        "submitSuccess": "Email inviata con successo!"
+      }
+    },
+    "vacancies": {
+      "title": "Opportunità di Lavoro",
+      "subTitleP1": "UNISCITI",
+      "subTitleP2": "A NOI",
+      "articles": [
+        {
+          "title": "Se sei un professionista motivato",
+          "description": "Nell'industria della costruzione, Luca Squad è il luogo perfetto per te. Offriamo un ambiente di lavoro dinamico e stimolante in cui puoi mettere in mostra le tue competenze e sviluppare la tua carriera. Cerchiamo individui talentuosi che condividano la nostra passione per l'eccellenza e la precisione e che vogliano contribuire in modo significativo a progetti di costruzione di alto profilo. Se sei interessato a unirti a un team impegnato a realizzare progetti straordinari e superare le aspettative, inviaci il tuo curriculum e lettera di presentazione a",
+          "link": "info@lucasquad.it"
+        },
+        {
+          "title": "Investimenti e collaborazioni",
+          "description": "Se sei interessato a investire in progetti innovativi nel settore della costruzione o desideri collaborare con noi per sviluppare nuove opportunità nell'industria della costruzione, siamo aperti a esplorare nuove partnership e iniziative. Luca Squad si impegna a stabilire relazioni solide e durature con investitori e aziende che condividono la nostra visione di eccellenza e qualità nell'industria della costruzione. Se sei interessato a discutere potenziali opportunità di investimento o collaborazione, contattaci direttamente a",
+          "link": "info@lucasquad.it"
+        }
+      ],
+      "discover": "Scopri Ora"
+    }
+  }
+}

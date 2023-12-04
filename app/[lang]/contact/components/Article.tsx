@@ -1,17 +1,16 @@
+import { Locale } from '@/i18n.config';
 import Image from 'next/image';
+import { getDictionary } from '@/lib/dictionary';
 
-const Article = () => {
+const Article = async ({ lang }: { lang: Locale }) => {
+  const { page } = await getDictionary(lang);
+
   return (
     <>
       <div className='flex flex-1 flex-col gap-6 bg-white p-8 text-ls-primary '>
-        <p className='text-3xl font-bold capitalize'>
-          We are happy to answer all your questions and discuss <br /> your
-          construction needs.
-        </p>
+        <p className='text-3xl font-bold capitalize'>{page.contact.subTitle}</p>
         <p className='text-sm normal-case'>
-          Do not hesitate to contact us for requests for quotes, consultations
-          or for more information about our expertise and services. We will be
-          ready to assist you.
+          {page.contact.subTitleDescription}
         </p>
       </div>
       <Image

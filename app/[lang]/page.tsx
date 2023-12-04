@@ -8,16 +8,13 @@ import Subscribe from './components/Subscribe';
 
 import { getDictionary } from '@/lib/dictionary';
 import { Locale } from '@/i18n.config';
-import { contacts, services } from '@/constants';
 
 export default async function Home({
   params: { lang },
 }: {
   params: { lang: Locale };
 }) {
-  console.log(lang);
   const { page } = await getDictionary(lang);
-  
   return (
     <main>
       <section
@@ -59,7 +56,7 @@ export default async function Home({
             </div>
             <div className='mt-3 text-center md:mt-0'>
               <p className='text-lg font-medium text-white delay-2500 duration-500 animate-in fade-in slide-in-from-left fill-mode-both'>
-                Where your construction dreams come to life{' '}
+                {page.home.subTitle}
               </p>
             </div>
           </div>
@@ -70,13 +67,13 @@ export default async function Home({
         <div className='container mx-auto'>
           <div className='my-16 flex xs:justify-center lg:justify-start'>
             <SectionTitle
-              primaryText='OUR'
-              secondaryText='SERVICES'
+              primaryText={page.home.headingP1}
+              secondaryText={page.home.headingP2}
             />
           </div>
 
           <div className='flex flex-wrap items-center gap-x-5 gap-y-6 xs:justify-center lg:justify-start'>
-            {services.map((item) => (
+            {page.home.services.map((item) => (
               <ServiceBox
                 key={item.title}
                 item={item}
@@ -88,14 +85,14 @@ export default async function Home({
 
       <section>
         <div className='container mx-auto my-16'>
-          <Slider />
+          <Slider sliderItems={page.home.sliderItems} />
         </div>
       </section>
 
       <section>
         <div className='container mx-auto mb-32 mt-52'>
           <div className='flex flex-wrap items-center gap-6'>
-            {contacts.map((item) => (
+            {page.home.contacts.map((item) => (
               <ContactBox
                 key={item.title}
                 item={item}

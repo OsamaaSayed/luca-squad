@@ -1,16 +1,172 @@
 {
-    "navigation": {
-      "home": "Home",
-      "about": "About"
+  "navigationLinks": [
+    { "label": "Home", "path": "/" },
+    { "label": "About Us", "path": "/about" },
+    { "label": "Vacancies", "path": "/vacancies" },
+    { "label": "Contact Us", "path": "/contact" }
+  ],
+  "page": {
+    "navLinks": [
+      { "label": "Home", " path": "/" },
+      { "label": "About Us", " path": "/about" },
+      { "label": "Vacancies", " path": "/vacancies" },
+      { "label": "Contact Us", " path": "/contact" }
+    ],
+    "home": {
+      "title": "Luca Squad",
+      "subTitle": "Where your construction dreams come to life",
+      "headingP1": "OUR",
+      "headingP2": "Services",
+      "services": [
+        {
+          "url": "/svg/home/address.svg",
+          "title": "Construction of private residences",
+          "body": "We carry out new construction of custom homes and villas, following the preferences and needs of our clients. We strive to create functional, aesthetically pleasing and high-quality living environments."
+        },
+        {
+          "url": "/svg/home/apartment.svg",
+          "title": "Commercial buildings",
+          "body": "We specialize in the construction of commercial buildings, such as offices, stores, and hospitality facilities. We collaborate with architects and designers to create spaces that meet the specific needs of our clients and provide a welcoming environment for their customers and employees."
+        },
+        {
+          "url": "/svg/home/house.svg",
+          "title": "Renovations",
+          "body": "We offer renovation services for homes, belonging, offices and commercial premises. We can transform existing spaces, modernize them and adapt them to current needs."
+        },
+        {
+          "url": "/svg/home/home.svg",
+          "title": "Restoration and Conservation",
+          "body": "We have expertise in the restoration of historic buildings and conservation work, preserving the integrity and historic value of properties."
+        },
+        {
+          "url": "/svg/home/city.svg",
+          "title": "Sustainable Construction",
+          "body": "We are committed to sustainable construction projects, using environmentally friendly materials and construction practices that reduce impact on the environment."
+        },
+        {
+          "url": "/svg/home/pm.svg",
+          "title": "Project Management",
+          "body": "We offer project management services to coordinate all phases of construction, ensuring effective planning, cost control and careful supervision to ensure project success."
+        },
+        {
+          "url": "/svg/home/consulting.svg",
+          "title": "Consulting and planning",
+          "body": "Our team of experts provides advice and support in project planning, helping you set goals, budget and develop a plan of action."
+        }
+      ],
+      "contacts": [
+        {
+          "url": "/svg/home/address-2.svg",
+          "title": "OUR ADDRESS",
+          "body": "Via della Guastalla, 11-20122 Milano (MI)",
+          "href": "https://goo.gl/maps/jqTi2D8nR9XeXRk1A"
+        },
+        {
+          "url": "/svg/home/email.svg",
+          "title": "EMAIL",
+          "body": "info@lucasquad.it",
+          "href": "mailto:info@lucasquad.it"
+        },
+        {
+          "url": "/svg/home/phone.svg",
+          "title": "CALL US",
+          "body": "+39 0297134070",
+          "href": "tel:+390297134070"
+        }
+      ],
+      "sliderItems": [
+        {
+          "icon": "/svg/home/address.svg",
+          "title": "Construction of private residences",
+          "img": "/images/home/slider/1.jpg"
+        },
+        {
+          "icon": "/svg/home/apartment.svg",
+          "title": "Commercial buildings",
+          "img": "/images/home/slider/2.jpg"
+        },
+        {
+          "icon": "/svg/home/house.svg",
+          "title": "Renovations",
+          "img": "/images/home/slider/3.jpg"
+        },
+        {
+          "icon": "/svg/home/home.svg",
+          "title": "Restoration and Conservation",
+          "img": "/images/home/slider/4.jpg"
+        },
+        {
+          "icon": "/svg/home/city.svg",
+          "title": "Sustainable Construction",
+          "img": "/images/home/slider/5.jpg"
+        },
+        {
+          "icon": "/svg/home/pm.svg",
+          "title": "Project Management",
+          "img": "/images/home/slider/6.jpg"
+        },
+        {
+          "icon": "/svg/home/consulting.svg",
+          "title": "Consulting and planning",
+          "img": "/images/home/slider/7.jpg"
+        }
+      ]
     },
-    "page": {
-      "home": {
-        "title": "Welcome to NextJs i18n",
-        "description": "Internationalization in NextJs 13 App router"
+    "about": {
+      "title": "About Us",
+      "subTitleP1": "WELCOME TO",
+      "subTitleP2": "LUCA SQUAD",
+      "firstParagraph": "A state-of-the-art construction company with an established reputation for excellence and integrity. Founded in Milan, Italy, we are committed to the construction industry with an emphasis on precision, innovation and customer satisfaction. Every project we undertake reflects our dedication to detail and quality, while our decades of experience enable us to successfully tackle a wide range of projects, from luxury residential complexes to commercial renovations.",
+      "secondParagraph": "We are guided by a philosophy that focuses on integrity and a commitment to excellence. Our team is made up of qualified professionals capable of tackling complex challenges with expertise and creativity. Each project represents an opportunity for us to demonstrate our ability to produce durable, high-quality work. Our mission is to exceed clients' expectations through an unwavering commitment to innovation and excellence, while maintaining high ethical standards."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subTitle": "We are happy to answer all your questions and discuss your construction needs.",
+      "subTitleDescription": "Do not hesitate to contact us for requests for quotes, consultations or for more information about our expertise and services. We will be ready to assist you.",
+      "contactInfo": {
+        "title": "We Will Be Happy To Welcome You And Provide You With All Necessary Information.",
+        "paragraph": "Alternatively, you can contact us through the following methods:",
+        "findUs": "You Can Find Us At Our Office Located At Via Della Guastalla, 11-20122 Milano (Mi)."
       },
-      "about": {
-        "title": "About Us",
-        "description": "This is the about page"
+      "contactForm": {
+        "placeholders": {
+          "name": "Your Name",
+          "email": "E-Mail",
+          "mobile": "Mobile Number: +390297134070",
+          "available": "Available time to connect",
+          "request": "Request"
+        },
+        "errors": {
+          "usernameError": "Please enter your username",
+          "emailError": "Please enter your email",
+          "validEmailError": "Please enter a valid email format",
+          "mobileError": "Please enter your mobile number",
+          "validMobileError": "Please enter a valid mobile number starting with +39",
+          "maxLengthError": "Max length exceeded",
+          "requestError": "Please enter your request"
+        },
+        "submit": "Submit",
+        "submitError": "Something went wrong, Please try again",
+        "submitSuccess": "Email sent successfully!"
       }
+    },
+    "vacancies": {
+      "title": "Vacancies",
+      "subTitleP1": "JOIN",
+      "subTitleP2": "US",
+      "articles": [
+        {
+          "title": "If you are a motivated professional",
+          "description": "In the construction industry, Luca Squad is the perfect place for you. We offer a dynamic and challenging work environment where you can showcase your skills and grow your career. We are looking for talented individuals who share our passion for excellence and precision and who want to contribute meaningfully to high-profile construction projects. If you are interested in joining a team committed to delivering extraordinary projects and exceeding expectations, please send us your resume and cover letter to",
+          "link": "info@lucasquad.it"
+        },
+        {
+          "title": "Investments and collaborations",
+          "description": "If you are interested in investing in innovative construction projects or would like to partner with us to develop new opportunities in the construction industry, we are open to exploring new partnerships and initiatives. Luca Squad is committed to establishing strong and lasting relationships with investors and companies that share our vision of excellence and quality in the construction industry. If you are interested in discussing potential investment or collaboration opportunities, please contact us directly at",
+          "link": "info@lucasquad.it"
+        }
+      ],
+      "discover": "Discover Now"
     }
   }
+}

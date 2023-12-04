@@ -2,15 +2,15 @@ import Image from 'next/image';
 
 import ContactMethod from './ContactMethod';
 
-const ContactInfo = () => {
+import { getDictionary } from '@/lib/dictionary';
+import { Locale } from '@/i18n.config';
+
+const ContactInfo = async ({ lang }: { lang: Locale }) => {
+  const { page } = await getDictionary(lang);
   return (
     <div className='flex flex-1 flex-col gap-8  p-8 font-bold capitalize text-white'>
-      <p>
-        We will be happy to welcome you and provide you with all necessary
-        information.
-      </p>
-      <p>Alternatively, </p>
-      <p>you can contact us through the following methods:</p>
+      <p>{page.contact.contactInfo.title}</p>
+      <p>{page.contact.contactInfo.paragraph}</p>
 
       <div className='flex flex-col gap-2 sm:flex-row sm:gap-6'>
         <ContactMethod
@@ -34,8 +34,7 @@ const ContactInfo = () => {
           alt='letter'
         />
         <span>
-          You can find us at our office located at Via della Guastalla, 11-20122
-          Milano (Mi).
+        {page.contact.contactInfo.findUs}
         </span>
       </div>
       <iframe

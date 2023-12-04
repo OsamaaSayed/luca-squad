@@ -1,18 +1,23 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { Locale } from '@/i18n.config';
+import Link from 'next/link';
 
-function Discover() {
-  const router = useRouter();
+type DiscoverProps = {
+  discover: string;
+  lang: Locale;
+};
+
+function Discover({ discover, lang }: DiscoverProps) {
   return (
     <div className=' px-28 py-10'>
-      <button
+      <Link
+        href={`/${lang}/vacancies/list`}
         className='bg-main bg-ls-primary px-10 py-2 text-xl text-white'
-        onClick={() => router.push('/vacancies/list')}
       >
-        Discover Now
-      </button>
+        {discover}
+      </Link>
     </div>
   );
 }

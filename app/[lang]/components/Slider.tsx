@@ -4,14 +4,22 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
-import { sliderItems } from '@/constants';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '@/styles/slider.css';
 
-const Slider = () => {
+type SliderItem = {
+  icon: string;
+  title: string;
+  img: string;
+};
+type SliderProps = {
+  sliderItems: SliderItem[];
+};
+
+const Slider = ({ sliderItems }: SliderProps) => {
   return (
     <Swiper
       navigation

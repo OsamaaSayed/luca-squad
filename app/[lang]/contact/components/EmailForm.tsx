@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { Locale } from '@/i18n.config';
+import { getDictionary } from '@/lib/dictionary';
+import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
@@ -22,8 +24,22 @@ const serviceId = 'service_seoftwb';
 const templateId = 'template_wzhjjzg';
 const publicKey = '10Pgsib7wbcrHepPa';
 
-function EmailForm() {
+function EmailForm({ lang }: { lang: Locale }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [contactFormInfo, setContactFormInfo] = useState<any>(null);
+
+  useEffect(() => {
+    getEmailFormData();
+  }, []);
+
+  const getEmailFormData = async () => {
+    try {
+      const { page } = await getDictionary(lang);
+      setContactFormInfo(page.contact.contactForm);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const {
     register,
@@ -61,10 +77,10 @@ function EmailForm() {
       });
       console.log(res);
 
-      if (!res.ok) throw new Error('Something went wrong, Please try again');
+      if (!res.ok) throw new Error(contactFormInfo?.submitError);
 
       // alert('Email sent successfully!');
-      toast.success('Email sent successfully!', {
+      toast.success(contactFormInfo?.submitSuccess, {
         style: {
           border: '1px solid #1A1A1A',
           padding: '16px',
@@ -81,7 +97,7 @@ function EmailForm() {
       //   err,
       // );
       // alert('Something went wrong, please try again');
-      toast.success('Something went wrong, Please try again.', {
+      toast.success(contactFormInfo?.submitError, {
         style: {
           border: '1px solid #1A1A1A',
           padding: '16px',
@@ -107,13 +123,13 @@ function EmailForm() {
           >
             <input
               {...register('username', {
-                required: 'Please enter your username',
+                required: contactFormInfo?.errors.usernameError,
               })}
               className={`focus:outline-primary text-primary py-2 ${
                 errors?.username && 'border-2 focus:outline-0'
               }  border-solid border-red-600
               px-4`}
-              placeholder='Your Name'
+              placeholder={contactFormInfo?.placeholders?.name}
               type='text'
               name='username'
               onKeyDown={(event) => {
@@ -129,10 +145,10 @@ function EmailForm() {
 
             <input
               {...register('email', {
-                required: 'Please enter your email',
+                required: contactFormInfo?.errors.emailError,
                 pattern: {
                   value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                  message: 'Please enter a valid email format',
+                  message: contactFormInfo?.errors.validEmailError,
                 },
                 onChange: () => {
                   trigger('email');
@@ -153,11 +169,10 @@ function EmailForm() {
 
             <input
               {...register('mobileNumber', {
-                required: 'Please enter your mobile number',
+                required: contactFormInfo?.errors.mobileError,
                 pattern: {
                   value: /^\+39\d*$/,
-                  message:
-                    'Please enter a valid mobile number starting with +39',
+                  message: contactFormInfo?.errors.validMobileError,
                 },
                 maxLength: 13,
                 onChange: () => {
@@ -168,7 +183,7 @@ function EmailForm() {
                 errors?.mobileNumber &&
                 'border-2 border-solid border-red-600 focus:outline-0'
               }`}
-              placeholder='Mobile Number: +390297134070'
+              placeholder={contactFormInfo?.placeholders?.mobile}
               type='text'
               name='mobileNumber'
               onKeyDown={(event) => {
@@ -187,26 +202,26 @@ function EmailForm() {
             {errors.mobileNumber &&
               errors.mobileNumber.type === 'maxLength' && (
                 <span className='mb-2 text-sm leading-none text-red-600 md:text-base'>
-                  Max length exceeded
+                  {contactFormInfo?.errors.maxLengthError}
                 </span>
               )}
             <input
               {...register('available_time')}
               className='focus:outline-primary text-primary px-4 py-2'
-              placeholder='Available time to connect'
+              placeholder={contactFormInfo?.placeholders?.available}
               type='text'
               name='available_time'
             />
 
             <textarea
               {...register('request', {
-                required: 'Please enter your request',
+                required: contactFormInfo?.errors.requestError,
               })}
               className={`focus:outline-primary text-primary mb-2 mt-3 h-48 resize-none px-4 py-2 ${
                 errors?.request &&
                 'border-2 border-solid border-red-600 focus:outline-0'
               }`}
-              placeholder='Request'
+              placeholder={contactFormInfo?.placeholders?.request}
               name='request'
               rows={3}
               cols={10}
@@ -239,7 +254,7 @@ function EmailForm() {
                   ></path>
                 </svg>
               ) : (
-                'Submit'
+                contactFormInfo?.submit
               )}
             </button>
           </form>
