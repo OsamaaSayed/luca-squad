@@ -2,7 +2,20 @@ import Header from '@/components/shared/Header';
 import React from 'react';
 import JobComponent from './components/JobComponent';
 
-const page = () => {
+async function getVacancies() {
+  const res = await fetch(
+    'http://sbtechnology-001-site85.atempurl.com/api/Vacancies/GetAllVacancies',
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+const page = async () => {
+  const vacancies = await getVacancies();
   return (
     <>
       <Header
@@ -10,13 +23,13 @@ const page = () => {
         title='Vacancies'
       ></Header>
       <section className='container mx-auto   py-10 '>
-        {[1, 2, 4, 5, 6, 7].map((_, index) => {
+        {vacancies.result?.map((item: any, index: number) => {
           return (
             <JobComponent
-              id={`${index + 1}`}
+              id={item.id}
               key={index}
-              title={`title`}
-              location={`location`}
+              title={item.titleEn}
+              location={item.location}
             />
           );
         })}
