@@ -46,6 +46,7 @@ function EmailForm({ lang }: { lang: Locale }) {
     handleSubmit,
     formState: { errors },
     trigger,
+    reset,
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = async (formData) => {
@@ -79,6 +80,7 @@ function EmailForm({ lang }: { lang: Locale }) {
 
       if (!res.ok) throw new Error(contactFormInfo?.submitError);
 
+      reset();
       // alert('Email sent successfully!');
       toast.success(contactFormInfo?.submitSuccess, {
         style: {

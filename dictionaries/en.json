@@ -166,7 +166,17 @@
           "link": "info@lucasquad.it"
         }
       ],
-      "discover": "Discover Now"
+      "discover": "Discover Now",
+      "apply": {
+        "firstName": "Enter First Name",
+        "lastName": "Enter Last Name",
+        "email": "Enter Your email",
+        "phone": "Enter your phone number",
+        "brief": "Write a brief overview of your professional history"
+      }
+    },
+    "vacancy": {
+      "title": "Vacancy"
     }
   }
 }
