@@ -78,7 +78,9 @@ export default function Page({ params }: { params: { id: string } }) {
           </article>
 
           <article className='mt-5'>
-            <h1 className='text-xl text-black'>Perks & Benefits You'll Get:</h1>
+            <h1 className='text-xl text-black'>
+              Perks & Benefits You Will Get:
+            </h1>
             <ul>
               <li>Competitive salary with a commission structure.</li>
               <li>Opportunities for career growth and continuous learning.</li>
