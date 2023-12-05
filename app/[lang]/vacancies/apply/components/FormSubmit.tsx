@@ -172,11 +172,11 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
             placeholder={'Enter first Name'}
             type='text'
             name='firstName'
-            // onKeyDown={(event) => {
-            //   if (!/^[a-zA-Z]*$/.test(event.key)) {
-            //     event.preventDefault();
-            //   }
-            // }}
+            onKeyDown={(event) => {
+              if (!/^[a-zA-Z]*$/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
           />
 
           <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
@@ -195,11 +195,11 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
             placeholder={'Enter Last Name'}
             type='text'
             name='lastName'
-            // onKeyDown={(event) => {
-            //   if (!/^[a-zA-Z]*$/.test(event.key)) {
-            //     event.preventDefault();
-            //   }
-            // }}
+            onKeyDown={(event) => {
+              if (!/^[a-zA-Z]*$/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
           />
 
           <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
