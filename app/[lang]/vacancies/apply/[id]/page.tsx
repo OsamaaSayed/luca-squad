@@ -4,11 +4,15 @@ import React from 'react';
 import { Locale } from '@/i18n.config';
 import toast from 'react-hot-toast';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import FormSubmit from './components/FormSubmit';
+import FormSubmit from '../components/FormSubmit';
 
-const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
+const page = async ({
+  params: { lang, id },
+}: {
+  params: { lang: Locale; id: string };
+}) => {
   const { page } = await getDictionary(lang);
-
+  console.log('id', id);
   return (
     <section>
       <Header
@@ -16,7 +20,7 @@ const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
         title={page.vacancies.title}
       />
       <article className='my-10 px-10'>
-        <FormSubmit lang={lang} />
+        <FormSubmit lang={lang} id={id} />
       </article>
     </section>
   );

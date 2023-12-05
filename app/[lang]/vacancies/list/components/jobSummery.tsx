@@ -1,5 +1,6 @@
 import React from 'react';
 import JobInfo from './jobInfo';
+import { useRouter } from 'next/navigation';
 
 const icons = [
   '/svg/location.svg',
@@ -13,6 +14,8 @@ const icons = [
 
 const JobSummery = (props: any) => {
   console.log('props', props);
+
+  const router = useRouter();
 
   const dateMaping = (date: string) => {
     const d = new Date(date);
@@ -124,7 +127,12 @@ const JobSummery = (props: any) => {
       </div>
       <div>
         {' '}
-        <button className='mt-5 w-full bg-ls-primary py-3 uppercase text-white '>
+        <button
+          className='mt-5 w-full bg-ls-primary py-3 uppercase text-white '
+          onClick={() => {
+            router.push(`/vacancies/apply/${props.id}`);
+          }}
+        >
           Apply Now
         </button>
       </div>

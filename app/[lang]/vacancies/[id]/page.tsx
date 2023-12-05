@@ -112,7 +112,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </article> */}
         </article>
         <article className=' col-span-3'>
-          <JobSummery vacancyDetails={vacancyDetails}  />
+          <JobSummery vacancyDetails={vacancyDetails} id={id}  />
         </article>
       </main>
     </section>

@@ -5,13 +5,16 @@ import { getDictionary } from '@/lib/dictionary';
 import { Locale } from '@/i18n.config';
 
 type FormData = {
-  username: string;
-  request: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  mobileNumber: number;
-  available_time: string;
+  phone: number;
+  brief: string;
+  cvurl: string;
+  cv: File;
+  // vacancyId: string;
 };
-const FormSubmit = ({ lang }: { lang: Locale }) => {
+const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
   const [contactFormInfo, setContactFormInfo] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,54 +25,86 @@ const FormSubmit = ({ lang }: { lang: Locale }) => {
     trigger,
   } = useForm<FormData>();
 
-  const onSubmit: SubmitHandler<FormData> = async (formData) => {
-    const { username, email, mobileNumber, request, available_time } = formData;
+  const handleCVChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Trigger request when file input changes
+    const fileInput = e.target;
+    if (fileInput.files?.length) {
+      const cvFile = fileInput.files[0];
+      // Your request logic here
+      console.log('CV file selected:', cvFile);
 
-    try {
-      //   setIsLoading(true);
-      const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(res);
-
-      if (!res.ok) throw new Error(contactFormInfo?.submitError);
-
-      // alert('Email sent successfully!');
-      //   toast.success(contactFormInfo?.submitSuccess, {
-      //     style: {
-      //       border: '1px solid #1A1A1A',
-      //       padding: '16px',
-      //       color: '#1A1A1A',
-      //     },
-      //     iconTheme: {
-      //       primary: '#1A1A1A',
-      //       secondary: '#FFFAEE',
-      //     },
-      //   });
-    } catch (err) {
-      // console.log(
-      //   '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
-      //   err,
-      // );
-      // alert('Something went wrong, please try again');
-      //   toast.success(contactFormInfo?.submitError, {
-      //     style: {
-      //       border: '1px solid #1A1A1A',
-      //       padding: '16px',
-      //       color: '#1A1A1A',
-      //     },
-      //     iconTheme: {
-      //       primary: '#1A1A1A',
-      //       secondary: '#FFFAEE',
-      //     },
-      //   });
-    } finally {
-      // setIsLoading(false);
+      const myFormData = new FormData();
+      myFormData.append('Image', cvFile);
+      myFormData.append('folderName', 'CVs');
+      try {
+        const res = await fetch(
+          'http://sbtechnology-001-site85.atempurl.com/api/ManageFile/UploadFile',
+          {
+            method: 'POST',
+            body: myFormData,
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          },
+        );
+      } catch (err) {
+        console.log('err', err);
+      }
+      // You can use setValue to update the 'cv' field in the form data
+      // setValue('cv', fileInput.files);
     }
+  };
+
+  const onSubmit: SubmitHandler<FormData> = async (formData) => {
+    const { firstName, lastName, email, phone, brief } = formData;
+
+    console.log('form data', formData);
+
+    // try {
+    //   //   setIsLoading(true);
+    //   const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    //     method: 'POST',
+    //     body: JSON.stringify(formData),
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //   });
+    //   console.log(res);
+
+    //   if (!res.ok) throw new Error(contactFormInfo?.submitError);
+
+    //   // alert('Email sent successfully!');
+    //   //   toast.success(contactFormInfo?.submitSuccess, {
+    //   //     style: {
+    //   //       border: '1px solid #1A1A1A',
+    //   //       padding: '16px',
+    //   //       color: '#1A1A1A',
+    //   //     },
+    //   //     iconTheme: {
+    //   //       primary: '#1A1A1A',
+    //   //       secondary: '#FFFAEE',
+    //   //     },
+    //   //   });
+    // } catch (err) {
+    //   // console.log(
+    //   //   '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
+    //   //   err,
+    //   // );
+    //   // alert('Something went wrong, please try again');
+    //   //   toast.success(contactFormInfo?.submitError, {
+    //   //     style: {
+    //   //       border: '1px solid #1A1A1A',
+    //   //       padding: '16px',
+    //   //       color: '#1A1A1A',
+    //   //     },
+    //   //     iconTheme: {
+    //   //       primary: '#1A1A1A',
+    //   //       secondary: '#FFFAEE',
+    //   //     },
+    //   //   });
+    // } finally {
+    //   // setIsLoading(false);
+    // }
   };
   return (
     <form
@@ -80,35 +115,58 @@ const FormSubmit = ({ lang }: { lang: Locale }) => {
       <article className='grid w-full grid-cols-2 gap-3.5'>
         <div className='w-full'>
           <input
-            {...register('username', {
-              required: contactFormInfo?.errors.usernameError,
+            {...register('firstName', {
+              required: 'First Name is required',
             })}
             className={`focus:outline-primary text-primary w-full py-2 ${
-              errors?.username && 'border-2 focus:outline-0'
+              errors?.firstName && 'border-2 focus:outline-0'
             }  border-solid border-red-600
               px-4`}
             placeholder={'Enter first Name'}
             type='text'
             name='username'
-            onKeyDown={(event) => {
-              if (!/^[a-zA-Z]*$/.test(event.key)) {
-                event.preventDefault();
-              }
-            }}
+            // onKeyDown={(event) => {
+            //   if (!/^[a-zA-Z]*$/.test(event.key)) {
+            //     event.preventDefault();
+            //   }
+            // }}
           />
 
           <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
-            {errors?.username?.message}
+            {errors?.firstName?.message}
+          </p>
+        </div>
+        <div className='w-full'>
+          <input
+            {...register('lastName', {
+              required: 'Last Name is required',
+            })}
+            className={`focus:outline-primary text-primary w-full py-2 ${
+              errors?.lastName && 'border-2 focus:outline-0'
+            }  border-solid border-red-600
+              px-4`}
+            placeholder={'Enter Last Name'}
+            type='text'
+            name='username'
+            // onKeyDown={(event) => {
+            //   if (!/^[a-zA-Z]*$/.test(event.key)) {
+            //     event.preventDefault();
+            //   }
+            // }}
+          />
+
+          <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
+            {errors?.lastName?.message}
           </p>
         </div>
 
         <div>
           <input
             {...register('email', {
-              required: contactFormInfo?.errors.emailError,
+              required: "Email can't be empty",
               pattern: {
                 value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                message: contactFormInfo?.errors.validEmailError,
+                message: 'Please enter a valid email',
               },
               onChange: () => {
                 trigger('email');
@@ -130,22 +188,22 @@ const FormSubmit = ({ lang }: { lang: Locale }) => {
 
         <div>
           <input
-            {...register('mobileNumber', {
-              required: contactFormInfo?.errors.mobileError,
+            {...register('phone', {
+              required: "Mobile phone can't be empty",
               pattern: {
                 value: /^\+39\d*$/,
-                message: contactFormInfo?.errors.validMobileError,
+                message: 'Please enter a valid mobile phone',
               },
               maxLength: 13,
               onChange: () => {
-                trigger('mobileNumber');
+                trigger('phone');
               },
             })}
             className={`focus:outline-primary text-primary w-full px-4 py-2 ${
-              errors?.mobileNumber &&
+              errors?.phone &&
               'border-2 border-solid border-red-600 focus:outline-0'
             }`}
-            placeholder={contactFormInfo?.placeholders?.mobile}
+            placeholder={'Mobile phone'}
             type='text'
             name='mobileNumber'
             onKeyDown={(event) => {
@@ -159,49 +217,60 @@ const FormSubmit = ({ lang }: { lang: Locale }) => {
           />
 
           <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
-            {errors?.mobileNumber?.message}
+            {errors?.phone?.message}
           </p>
-          {errors.mobileNumber && errors.mobileNumber.type === 'maxLength' && (
+          {errors.phone && errors.phone.type === 'maxLength' && (
             <span className='mb-2 text-sm leading-none text-red-600 md:text-base'>
               {contactFormInfo?.errors.maxLengthError}
             </span>
           )}
         </div>
-
-        <div>
-          <input
-            {...register('available_time')}
-            className='focus:outline-primary text-primary w-full px-4 py-2'
-            placeholder={contactFormInfo?.placeholders?.available}
-            type='text'
-            name='available_time'
-          />
-        </div>
       </article>
 
       <div>
         <textarea
-          {...register('request', {
-            required: contactFormInfo?.errors.requestError,
+          {...register('brief', {
+            required: "Brief can't be empty",
           })}
           className={`focus:outline-primary text-primary mb-2 mt-3 h-48 w-full resize-none px-4 py-2 ${
-            errors?.request &&
+            errors?.brief &&
             'border-2 border-solid border-red-600 focus:outline-0'
           }`}
-          placeholder={contactFormInfo?.placeholders?.request}
+          placeholder={'Write a brief overview of your professional history'}
           name='request'
           rows={3}
           cols={10}
         ></textarea>
 
         <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
-          {errors?.request?.message}
+          {errors?.brief?.message}
         </p>
+      </div>
+
+      <div className=''>
+        <div className=' w-full'>
+          <input
+            {...register('cv', {
+              required: 'CV is required',
+            })}
+            type='file'
+            accept='.pdf, .doc, .docx' // Specify allowed file types if needed
+            className={`focus:outline-primary text-primary w-full bg-white  py-2 ${
+              errors?.cv && 'border-2 focus:outline-0'
+            }  border-solid border-red-600 px-4`}
+            onChange={handleCVChange}
+          />
+
+          <p className='mb-2 mt-1 text-sm leading-none text-red-600 md:text-base'>
+            {errors?.cv?.message}
+          </p>
+        </div>
       </div>
 
       <button
         className='mt-3 w-1/2  border border-white bg-ls-primary px-3 py-2 text-base font-medium text-white transition-all duration-300 hover:bg-ls-primary hover:text-white disabled:bg-[#DCDCDC] md:w-1/3 md:text-lg'
         disabled={isLoading}
+        type='submit'
       >
         {isLoading ? (
           <svg
