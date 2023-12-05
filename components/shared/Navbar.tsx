@@ -56,7 +56,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
           );
         })}
 
-        <li className='ml-auto mr-2'>
+        <li className='ml-auto mr-6 '>
           <Link
             href={redirectedPathName(lang == 'en' ? 'it' : 'en')}
             className=' rounded-md border px-3 py-2 text-white  max-sm:text-sm'
