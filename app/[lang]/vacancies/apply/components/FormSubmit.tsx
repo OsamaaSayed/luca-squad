@@ -116,7 +116,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               primary: '#1A1A1A',
               secondary: '#FFFAEE',
             },
-            duration: 1000,
+            duration: 500,
           });
         });
       // console.log(res);
@@ -241,7 +241,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
             {...register('phone', {
               required: "Mobile phone can't be empty",
               pattern: {
-                value: /^\+39\d*$/,
+                value: /^\+39\d{10}$/,
                 message: 'Please enter a valid mobile phone',
               },
               maxLength: 13,
