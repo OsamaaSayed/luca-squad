@@ -38,6 +38,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
 
       const myFormData = new FormData();
       myFormData.append('file', cvFile);
+      trigger('cv');
       // myFormData.append('folderName', 'CVs');
       try {
         axios
