@@ -23,13 +23,13 @@ const page = async () => {
         title='Vacancies'
       ></Header>
       <section className='container mx-auto   py-10 '>
-        {vacancies.result?.map((item: any, index: number) => {
+        {vacancies?.result?.map((item: any, index: number) => {
           return (
             <JobComponent
-              id={item.id}
+              id={item?.id}
               key={index}
-              title={item.titleEn}
-              location={item.location}
+              title={item?.titleEn}
+              location={item?.location}
             />
           );
         })}

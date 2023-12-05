@@ -17,6 +17,9 @@ const JobComponent: React.FC<Props> = (props) => {
       <button
         className='bg-main  h-10 bg-ls-primary text-white md:px-12 md:py-0'
         onClick={() => router.push(`/vacancies/${props.id}`)}
+        // onClick={() => {
+        //   console.log('id', props.id);
+        // }}
       >
         Discover Now
       </button>

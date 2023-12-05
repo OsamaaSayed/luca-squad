@@ -1,6 +1,6 @@
-'use client';
 import Header from '@/components/shared/Header';
 import JobSummery from '../list/components/jobSummery';
+import { useEffect, useState } from 'react';
 
 async function getVacancyDetails(id: string) {
   const res = await fetch(
@@ -15,8 +15,14 @@ async function getVacancyDetails(id: string) {
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
+  // const [vacancyDetails, setVacancyDetails] = useState();
+  // useEffect(  async () => {
+  //   setVacancyDetails( await getVacancyDetails(id));
+  // }, [])
+
   const id = params.id;
   const vacancyDetails = await getVacancyDetails(id);
+  // let vacancyDetails;
   console.log('vacancy details', vacancyDetails);
   return (
     <section className=' w-full '>
@@ -112,7 +118,10 @@ export default async function Page({ params }: { params: { id: string } }) {
           </article> */}
         </article>
         <article className=' col-span-3'>
-          <JobSummery vacancyDetails={vacancyDetails} id={id}  />
+          <JobSummery
+            vacancyDetails={vacancyDetails}
+            id={id}
+          />
         </article>
       </main>
     </section>
