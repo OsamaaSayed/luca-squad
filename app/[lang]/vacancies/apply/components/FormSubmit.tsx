@@ -19,7 +19,8 @@ type FormData = {
 const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
   const [contactFormInfo, setContactFormInfo] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [imgUrl, setImgUrl] = useState('');
+  // const [file, setFile] = useState(null);
+  const [imgUrl, setImgUrl] = useState<null>();
   const {
     register,
     handleSubmit,
@@ -33,6 +34,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
     const fileInput = e.target;
     if (fileInput.files?.length) {
       const cvFile = fileInput.files[0];
+      // setFile(cvFile);
       // Your request logic here
       console.log('CV file selected:', cvFile);
 
@@ -114,6 +116,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               primary: '#1A1A1A',
               secondary: '#FFFAEE',
             },
+            duration: 1000,
           });
         });
       // console.log(res);
