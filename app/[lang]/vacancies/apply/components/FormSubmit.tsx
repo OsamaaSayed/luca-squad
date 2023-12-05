@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { getDictionary } from '@/lib/dictionary';
 import { Locale } from '@/i18n.config';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 type FormData = {
   firstName: string;
@@ -17,10 +19,11 @@ type FormData = {
 const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
   const [contactFormInfo, setContactFormInfo] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [imgUrl, setImgUrl] = useState('');
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     trigger,
   } = useForm<FormData>();
@@ -34,19 +37,35 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
       console.log('CV file selected:', cvFile);
 
       const myFormData = new FormData();
-      myFormData.append('Image', cvFile);
-      myFormData.append('folderName', 'CVs');
+      myFormData.append('file', cvFile);
+      // myFormData.append('folderName', 'CVs');
       try {
-        const res = await fetch(
-          'http://sbtechnology-001-site85.atempurl.com/api/ManageFile/UploadFile',
-          {
-            method: 'POST',
-            body: myFormData,
-            headers: {
-              'Content-Type': 'multipart/form-data',
+        axios
+          .post(
+            'http://sbtechnology-001-site86.atempurl.com/api/FileActions/UploadFile?folderName=CVs',
+            myFormData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
             },
-          },
-        );
+          )
+          .then((res) => {
+            // console.log('res', res.data);
+            setImgUrl(res.data);
+          })
+          .catch((err) => {});
+
+        // const res = await fetch(
+        //   'http://sbtechnology-001-site85.atempurl.com/api/ManageFile/UploadFile?folderName=CVs',
+        //   {
+        //     method: 'POST',
+        //     body: myFormData,
+        //     headers: {
+        //       'Content-Type': 'multipart/form-data',
+        //     },
+        //   },
+        // );
       } catch (err) {
         console.log('err', err);
       }
@@ -60,51 +79,78 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
 
     console.log('form data', formData);
 
-    // try {
-    //   //   setIsLoading(true);
-    //   const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    //     method: 'POST',
-    //     body: JSON.stringify(formData),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //   });
-    //   console.log(res);
+    try {
+      setIsLoading(true);
 
-    //   if (!res.ok) throw new Error(contactFormInfo?.submitError);
+      axios
+        .post(
+          'http://sbtechnology-001-site85.atempurl.com/api/ApplicantInfos/SubmitApplicantInfo',
+          { ...formData, cvurl: imgUrl, vacancyId: id },
+        )
+        .then((res) => {
+          reset();
+          toast.success('Application sent successfully', {
+            style: {
+              border: '1px solid #1A1A1A',
+              padding: '16px',
+              color: '#1A1A1A',
+            },
+            iconTheme: {
+              primary: '#1A1A1A',
+              secondary: '#FFFAEE',
+            },
+          });
+        })
+        .catch((err) => {
+          // alert();
+          toast.error('Something went wrong', {
+            style: {
+              border: '1px solid #1A1A1A',
+              padding: '16px',
+              color: '#1A1A1A',
+            },
+            iconTheme: {
+              primary: '#1A1A1A',
+              secondary: '#FFFAEE',
+            },
+          });
+        });
+      // console.log(res);
 
-    //   // alert('Email sent successfully!');
-    //   //   toast.success(contactFormInfo?.submitSuccess, {
-    //   //     style: {
-    //   //       border: '1px solid #1A1A1A',
-    //   //       padding: '16px',
-    //   //       color: '#1A1A1A',
-    //   //     },
-    //   //     iconTheme: {
-    //   //       primary: '#1A1A1A',
-    //   //       secondary: '#FFFAEE',
-    //   //     },
-    //   //   });
-    // } catch (err) {
-    //   // console.log(
-    //   //   '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
-    //   //   err,
-    //   // );
-    //   // alert('Something went wrong, please try again');
-    //   //   toast.success(contactFormInfo?.submitError, {
-    //   //     style: {
-    //   //       border: '1px solid #1A1A1A',
-    //   //       padding: '16px',
-    //   //       color: '#1A1A1A',
-    //   //     },
-    //   //     iconTheme: {
-    //   //       primary: '#1A1A1A',
-    //   //       secondary: '#FFFAEE',
-    //   //     },
-    //   //   });
-    // } finally {
-    //   // setIsLoading(false);
-    // }
+      // if (!res.ok) throw new Error(contactFormInfo?.submitError);
+
+      // alert('Email sent successfully!');
+      //   toast.success(contactFormInfo?.submitSuccess, {
+      //     style: {
+      //       border: '1px solid #1A1A1A',
+      //       padding: '16px',
+      //       color: '#1A1A1A',
+      //     },
+      //     iconTheme: {
+      //       primary: '#1A1A1A',
+      //       secondary: '#FFFAEE',
+      //     },
+      //   });
+    } catch (err) {
+      // console.log(
+      //   '🚀 ~ file: index.page.tsx:45 ~ constonSubmit:SubmitHandler<FormData>= ~ err:',
+      //   err,
+      // );
+      // alert('Something went wrong, please try again');
+      //   toast.success(contactFormInfo?.submitError, {
+      //     style: {
+      //       border: '1px solid #1A1A1A',
+      //       padding: '16px',
+      //       color: '#1A1A1A',
+      //     },
+      //     iconTheme: {
+      //       primary: '#1A1A1A',
+      //       secondary: '#FFFAEE',
+      //     },
+      //   });
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <form
@@ -124,7 +170,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               px-4`}
             placeholder={'Enter first Name'}
             type='text'
-            name='username'
+            name='firstName'
             // onKeyDown={(event) => {
             //   if (!/^[a-zA-Z]*$/.test(event.key)) {
             //     event.preventDefault();
@@ -147,7 +193,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               px-4`}
             placeholder={'Enter Last Name'}
             type='text'
-            name='username'
+            name='lastName'
             // onKeyDown={(event) => {
             //   if (!/^[a-zA-Z]*$/.test(event.key)) {
             //     event.preventDefault();
@@ -205,7 +251,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
             }`}
             placeholder={'Mobile phone'}
             type='text'
-            name='mobileNumber'
+            name='phone'
             onKeyDown={(event) => {
               if (event.key === 'Backspace' || event.key === 'Tab') {
                 return;
@@ -237,7 +283,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
             'border-2 border-solid border-red-600 focus:outline-0'
           }`}
           placeholder={'Write a brief overview of your professional history'}
-          name='request'
+          name='brief'
           rows={3}
           cols={10}
         ></textarea>
