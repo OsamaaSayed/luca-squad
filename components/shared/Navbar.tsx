@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 import { Locale } from '@/i18n.config';
 import { getDictionary } from '@/lib/dictionary';
+import Image from 'next/image';
 
 type NavLinkType = {
   label: string;
@@ -55,12 +56,18 @@ const Navbar = ({ lang }: { lang: Locale }) => {
           );
         })}
 
-        <li className='ml-auto mr-6 '>
+        <li className='ml-auto mr-2 xs:mr-6 '>
           <Link
             href={redirectedPathName(lang == 'en' ? 'it' : 'en')}
-            className=' rounded-md border px-3 py-2 text-white  max-sm:text-sm'
+            className='flex gap-2 rounded-md  px-3 py-2 text-white  max-sm:text-sm '
           >
-            {lang == 'en' ? 'it' : 'en'}
+            <Image
+              src='svg/language.svg'
+              width={24}
+              height={24}
+              alt='language icon'
+            />{' '}
+            {lang == 'en' ? 'IT' : 'EN'}
           </Link>
         </li>
       </ul>
