@@ -48,7 +48,7 @@ const JobSummery = (props: any) => {
           />
           <div>
             <p className='text-[#7A7A7A]'>Location</p>
-            <p>{props.vacancyDetails.result.location}</p>
+            <p>{props.vacancyDetails?.result?.locationEn}</p>
           </div>
         </div>
         <div className='mt-8 flex items-center gap-3'>
@@ -83,7 +83,7 @@ const JobSummery = (props: any) => {
           />
           <div>
             <p className='text-[#7A7A7A]'>Experience</p>
-            <p>{props.vacancyDetails.result.experience}</p>
+            <p>{props.vacancyDetails.result.experienceEn}</p>
           </div>
         </div>
 
