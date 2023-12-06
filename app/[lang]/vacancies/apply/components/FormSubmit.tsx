@@ -45,7 +45,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
       try {
         axios
           .post(
-            'http://sbtechnology-001-site86.atempurl.com/api/FileActions/UploadFile?folderName=CVs',
+            'https://sbtechnology-001-site86.atempurl.com/api/FileActions/UploadFile?folderName=CVs',
             myFormData,
             {
               headers: {
