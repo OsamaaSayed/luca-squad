@@ -19,6 +19,8 @@ async function getVacancies() {
 
 const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
   const vacancies = await getVacancies();
+  const { page } = await getDictionary(lang);
+
   return (
     <>
       <Header
