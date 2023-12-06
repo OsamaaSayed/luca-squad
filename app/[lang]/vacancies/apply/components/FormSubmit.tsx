@@ -87,7 +87,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
 
       axios
         .post(
-          'http://sbtechnology-001-site85.atempurl.com/api/ApplicantInfos/SubmitApplicantInfo',
+          'https://sbtechnology-001-site85.atempurl.com/api/ApplicantInfos/SubmitApplicantInfo',
           { ...formData, cvurl: imgUrl, vacancyId: id },
         )
         .then((res) => {
