@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 
 type Props = {
   title: string;
@@ -9,7 +9,7 @@ type Props = {
 const JobInfo: React.FC<Props> = (props) => {
   return (
     <div className='mt-8 flex items-center gap-3'>
-      <img
+      <Image
         src={props.image}
         alt=''
         className='h-5 w-5'

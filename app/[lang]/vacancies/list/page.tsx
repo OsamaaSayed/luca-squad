@@ -1,10 +1,13 @@
 import Header from '@/components/shared/Header';
 import React from 'react';
 import JobComponent from './components/JobComponent';
+import { Locale } from '@/i18n.config';
+import { getDictionary } from '@/lib/dictionary';
 
 async function getVacancies() {
   const res = await fetch(
-    'http://sbtechnology-001-site85.atempurl.com/api/Vacancies/GetAllVacancies',
+    'https://sbtechnology-001-site85.atempurl.com/api/Vacancies/GetAllVacancies',
+    { cache: 'no-store' },
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -14,15 +17,18 @@ async function getVacancies() {
   return res.json();
 }
 
-const page = async () => {
+const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
   const vacancies = await getVacancies();
+  const { page } = await getDictionary(lang);
+
+  console.log(vacancies, page);
   return (
     <>
       <Header
         bgImage='/images/vacancies/vacancies-bg.jpg'
-        title='Vacancies'
+        title={page.vacanciesList.title}
       ></Header>
-      <section className='container mx-auto   py-10 '>
+      <section className='container mx-auto py-10 '>
         {vacancies?.result?.map((item: any, index: number) => {
           return (
             <JobComponent
@@ -30,6 +36,7 @@ const page = async () => {
               key={index}
               title={item?.titleEn}
               location={item?.location}
+              discover={page.vacanciesList.discover}
             />
           );
         })}

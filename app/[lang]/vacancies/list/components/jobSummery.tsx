@@ -2,6 +2,7 @@
 import React from 'react';
 import JobInfo from './jobInfo';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const icons = [
   '/svg/location.svg',
@@ -41,9 +42,11 @@ const JobSummery = (props: any) => {
           );
         })} */}
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/location.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
@@ -52,9 +55,11 @@ const JobSummery = (props: any) => {
           </div>
         </div>
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/job.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
@@ -64,9 +69,11 @@ const JobSummery = (props: any) => {
         </div>
 
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/date.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
@@ -76,9 +83,11 @@ const JobSummery = (props: any) => {
         </div>
 
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/book.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
@@ -88,9 +97,11 @@ const JobSummery = (props: any) => {
         </div>
 
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/time.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
@@ -100,9 +111,11 @@ const JobSummery = (props: any) => {
         </div>
 
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/calender.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
@@ -112,9 +125,11 @@ const JobSummery = (props: any) => {
         </div>
 
         <div className='mt-8 flex items-center gap-3'>
-          <img
+          <Image
             src={'/svg/chair.svg'}
             alt=''
+            width={20}
+            height={20}
             className='h-5 w-5'
           />
           <div>
