@@ -165,6 +165,47 @@
     "vacanciesList": {
       "title": "Opportunità di Lavoro",
       "discover": "Scopri Ora"
+    },
+    "vacancyDetails": {
+      "title": "Vacanza",
+      "subtitle": "Chi Stiamo Cercando",
+      "jobSummary": {
+        "title": "Riassunto del Lavoro",
+        "location": "Posizione",
+        "jobType": "Tipo di Lavoro",
+        "date": "Data di Pubblicazione",
+        "experience": "Esperienza",
+        "workingHours": "Orario di Lavoro",
+        "workingDays": "Giorni Lavorativi",
+        "vacancy": "Vacanza",
+        "NoOfVacancies": "Numero di Vacanze:",
+        "apply": "Applica Ora"
+      },
+      "applyForm": {
+        "information": "Informazioni",
+        "submit": "Invia",
+        "placeholders": {
+          "firstName": "Inserisci il Nome",
+          "lastName": "Inserisci il Cognome",
+          "email": "Inserisci la Tua Email",
+          "phone": "Inserisci il Tuo Numero di Telefono",
+          "brief": "Scrivi una breve panoramica della tua storia professionale"
+        },
+        "errors": {
+          "firstNameError": "Il Nome è obbligatorio",
+          "lastNameError": "Il Cognome è obbligatorio",
+          "emailError": "L'Email non può essere vuota",
+          "validEmailError": "Inserisci un'email valida",
+          "phoneError": "Il numero di telefono non può essere vuoto",
+          "validMobileError": "Inserisci un numero di telefono mobile valido",
+          "briefError": "La panoramica non può essere vuota",
+          "CvError": "Il Curriculum Vitae è obbligatorio"
+        },
+        "requests": {
+          "requestFailed": "Qualcosa è andato storto",
+          "requestSuccess": "Richiesta inviata con successo"
+        }
+      }
     }
   }
 }

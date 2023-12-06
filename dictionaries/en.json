@@ -169,12 +169,50 @@
         "brief": "Write a brief overview of your professional history"
       }
     },
-    "vacancy": {
-      "title": "Vacancy"
-    },
     "vacanciesList": {
-      "title": "Vacancy",
+      "title": "Vacancies",
       "discover": "Discover Now"
+    },
+    "vacancyDetails": {
+      "title": "Vacancy",
+      "subtitle": "Who Are We Looking For",
+      "jobSummary": {
+        "title": "Job Summary",
+        "location": "Location",
+        "jobType": "Job Type",
+        "date": "Date posted",
+        "experience": "Experience",
+        "workingHours": "Working Hours",
+        "workingDays": "Working Days",
+        "vacancy": "Vacancy",
+        "NoOfVacancies": "No.of Vacancies:",
+        "apply": " Apply Now"
+      },
+      "applyForm": {
+        "information": "Information",
+        "submit": "Submit",
+        "placeholders": {
+          "firstName": "Enter First Name",
+          "lastName": "Enter Last Name",
+          "email": "Enter Your Email",
+          "phone": "Enter your Phone Number",
+          "brief": "Write a brief overview of your professional history"
+        },
+        "errors": {
+          "firstNameError": "First Name is required",
+          "lastNameError": "Last Name is required",
+          "emailError": "Email can't be empty",
+          "validEmailError": "Please enter a valid email",
+          "phoneError": "Mobile phone can't be empty",
+          "validMobileError": "Please enter a valid mobile phone",
+          "briefError": "Brief can't be empty",
+          "CvError": "CV is required"
+        },
+        "requests": {
+          "requestFailed": "Something went wrong",
+          "requestSuccess": "Application sent successfully"
+        }
+      }
     }
   }
 }

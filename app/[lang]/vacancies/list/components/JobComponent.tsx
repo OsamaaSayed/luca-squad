@@ -18,9 +18,6 @@ const JobComponent = ({ id, title, location, discover }: JobComponentProps) => {
       <button
         className='bg-main  h-10 bg-ls-primary text-white md:px-12 md:py-0'
         onClick={() => router.push(`/vacancies/${id}`)}
-        // onClick={() => {
-        //   console.log('id', props.id);
-        // }}
       >
         {discover}
       </button>

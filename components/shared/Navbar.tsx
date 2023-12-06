@@ -41,7 +41,6 @@ const Navbar = ({ lang }: { lang: Locale }) => {
     <nav className='absolute left-0 right-0 top-10 text-white'>
       <ul className='flex items-center justify-center gap-2 xs:gap-4'>
         {navigationLinks?.map((item: NavLinkType, index: number) => {
-          console.log(pathName, `/${lang}` + item.path);
           const isActive = pathName === `/${lang}` + item.path;
 
           return (
@@ -61,7 +60,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
             href={redirectedPathName(lang == 'en' ? 'it' : 'en')}
             className=' rounded-md border px-3 py-2 text-white  max-sm:text-sm'
           >
-            {lang}
+            {lang == 'en' ? 'it' : 'en'}
           </Link>
         </li>
       </ul>

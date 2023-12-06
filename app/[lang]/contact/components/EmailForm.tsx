@@ -76,7 +76,6 @@ function EmailForm({ lang }: { lang: Locale }) {
           'Content-Type': 'application/json',
         },
       });
-      console.log(res);
 
       if (!res.ok) throw new Error(contactFormInfo?.submitError);
 
