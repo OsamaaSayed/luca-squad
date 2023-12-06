@@ -4,7 +4,7 @@ import JobComponent from './components/JobComponent';
 
 async function getVacancies() {
   const res = await fetch(
-    'http://sbtechnology-001-site85.atempurl.com/api/Vacancies/GetAllVacancies',
+    'https://sbtechnology-001-site85.atempurl.com/api/Vacancies/GetAllVacancies',
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -16,6 +16,7 @@ async function getVacancies() {
 
 const page = async () => {
   const vacancies = await getVacancies();
+  console.log('vacancies', vacancies);
   return (
     <>
       <Header
