@@ -122,6 +122,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               secondary: '#FFFAEE',
             },
             duration: 500,
+            
           });
         });
       // console.log(res);
