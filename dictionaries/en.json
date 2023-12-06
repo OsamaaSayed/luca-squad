@@ -6,12 +6,6 @@
     { "label": "Contact Us", "path": "/contact" }
   ],
   "page": {
-    "navLinks": [
-      { "label": "Home", " path": "/" },
-      { "label": "About Us", " path": "/about" },
-      { "label": "Vacancies", " path": "/vacancies" },
-      { "label": "Contact Us", " path": "/contact" }
-    ],
     "home": {
       "title": "Luca Squad",
       "subTitle": "Where your construction dreams come to life",
@@ -177,6 +171,10 @@
     },
     "vacancy": {
       "title": "Vacancy"
+    },
+    "vacanciesList": {
+      "title": "Vacancy",
+      "discover": "Discover Now"
     }
   }
 }
