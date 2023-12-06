@@ -35,6 +35,7 @@ const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
               title={item?.titleEn}
               location={item?.location}
               discover={page.vacanciesList.discover}
+              lang={lang}
             />
           );
         })}

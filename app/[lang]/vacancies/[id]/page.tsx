@@ -1,5 +1,5 @@
 import Header from '@/components/shared/Header';
-import JobSummery from '../list/components/jobSummary';
+import JobSummary from '../list/components/JobSummary';
 
 import { Locale } from '@/i18n.config';
 import { getDictionary } from '@/lib/dictionary';
@@ -23,7 +23,7 @@ export default async function Page({
 }) {
   const vacancyDetails = await getVacancyDetails(id);
   const { page } = await getDictionary(lang);
-  
+
   return (
     <section className='w-full'>
       <Header
@@ -56,7 +56,7 @@ export default async function Page({
           </main>
         </article>
         <article className=' col-span-3'>
-          <JobSummery
+          <JobSummary
             vacancyDetails={vacancyDetails}
             lang={lang}
             id={id}
