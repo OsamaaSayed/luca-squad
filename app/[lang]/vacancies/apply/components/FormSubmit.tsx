@@ -20,6 +20,8 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
   const [contactFormInfo, setContactFormInfo] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   // const [file, setFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
   const [imgUrl, setImgUrl] = useState<null>();
   const {
     register,
@@ -30,52 +32,55 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
   } = useForm<FormData>();
 
   const handleCVChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Trigger request when file input changes
     const fileInput = e.target;
     if (fileInput.files?.length) {
       const cvFile = fileInput.files[0];
-      // setFile(cvFile);
-      // Your request logic here
       console.log('CV file selected:', cvFile);
+
+      // Check if the user canceled the file selection
+      if (cvFile.name === '') {
+        return;
+      }
+
+      // Save the selected file in state
+      setSelectedFile(cvFile);
 
       const myFormData = new FormData();
       myFormData.append('file', cvFile);
       trigger('cv');
-      // myFormData.append('folderName', 'CVs');
-      try {
-        axios
-          .post(
-            'https://sbtechnology-001-site86.atempurl.com/api/FileActions/UploadFile?folderName=CVs',
-            myFormData,
-            {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
-            },
-          )
-          .then((res) => {
-            // console.log('res', res.data);
-            setImgUrl(res.data);
-          })
-          .catch((err) => {});
 
-        // const res = await fetch(
-        //   'http://sbtechnology-001-site85.atempurl.com/api/ManageFile/UploadFile?folderName=CVs',
-        //   {
-        //     method: 'POST',
-        //     body: myFormData,
-        //     headers: {
-        //       'Content-Type': 'multipart/form-data',
-        //     },
-        //   },
-        // );
+      try {
+        const response = await axios.post(
+          'https://sbtechnology-001-site86.atempurl.com/api/FileActions/UploadFile?folderName=CVs',
+          myFormData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          },
+        );
+
+        // Check if the upload was successful
+        if (response.status === 200) {
+          // Only set the file URL after a successful upload
+          setImgUrl(response.data);
+        } else {
+          // If there was an error, you can handle it here
+          console.error('File upload failed:', response.data);
+        }
       } catch (err) {
         console.log('err', err);
       }
-      // You can use setValue to update the 'cv' field in the form data
-      // setValue('cv', fileInput.files);
     }
   };
+
+  // Your file input remains the same
+
+  // Your file input remains the same
+
+  // Your file input remains the same
+
+  // Your file input remains the same
 
   const onSubmit: SubmitHandler<FormData> = async (formData) => {
     const { firstName, lastName, email, phone, brief } = formData;
@@ -297,15 +302,15 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
         </p>
       </div>
 
-      <div className=''>
-        <div className=' w-full'>
+      <div className='  md:w-full'>
+        <div className='  bg-white'>
           <input
             {...register('cv', {
               required: 'CV is required',
             })}
             type='file'
             accept='.pdf, .doc, .docx' // Specify allowed file types if needed
-            className={`focus:outline-primary text-primary w-full bg-white  py-2 ${
+            className={`focus:outline-primary text-primary   py-2 ${
               errors?.cv && 'border-2 focus:outline-0'
             }  border-solid border-red-600 px-4`}
             onChange={handleCVChange}
