@@ -179,6 +179,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               px-4`}
             placeholder={'Enter first Name'}
             type='text'
+            autoComplete='off'
             name='firstName'
             onKeyDown={(event) => {
               if (!/^[a-zA-Z]*$/.test(event.key)) {
@@ -203,6 +204,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
             placeholder={'Enter Last Name'}
             type='text'
             name='lastName'
+            autoComplete='off'
             onKeyDown={(event) => {
               if (!/^[a-zA-Z]*$/.test(event.key)) {
                 event.preventDefault();
