@@ -122,7 +122,6 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
               secondary: '#FFFAEE',
             },
             duration: 500,
-            
           });
         });
       // console.log(res);
@@ -324,7 +323,7 @@ const FormSubmit = ({ lang, id }: { lang: Locale; id: string }) => {
       </div>
 
       <button
-        className='mt-3 w-1/2  border border-white bg-ls-primary px-3 py-2 text-base font-medium text-white transition-all duration-300 hover:bg-ls-primary hover:text-white disabled:bg-[#DCDCDC] md:w-1/3 md:text-lg'
+        className='mt-3 w-1/2 border border-white bg-ls-primary px-3 py-2 text-base font-medium capitalize text-white transition-all duration-300 hover:bg-ls-primary hover:text-white disabled:bg-[#DCDCDC] md:w-1/3 md:text-lg'
         disabled={isLoading}
         type='submit'
       >
