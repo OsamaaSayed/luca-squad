@@ -1,6 +1,6 @@
 import Header from '@/components/shared/Header';
-import JobSummary from '../list/components/JobSummary';
 
+import JobSummarySection from '../list/components/jobSummary';
 import { Locale } from '@/i18n.config';
 import { getDictionary } from '@/lib/dictionary';
 
@@ -56,7 +56,7 @@ export default async function Page({
           </main>
         </article>
         <article className=' col-span-3'>
-          <JobSummary
+          <JobSummarySection
             vacancyDetails={vacancyDetails}
             lang={lang}
             id={id}

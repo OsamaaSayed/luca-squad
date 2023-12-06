@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import JobSummaryField from './JobSummaryField';
 
-const JobSummary = ({ id, lang, vacancyDetails, jobSummaryText }: any) => {
+const JobSummarySection = ({
+  id,
+  lang,
+  vacancyDetails,
+  jobSummaryText,
+}: any) => {
   const dateMaping = (date: string) => {
     const d = new Date(date);
     const month = d.toLocaleString('default', { month: 'short' });
@@ -73,4 +78,4 @@ const JobSummary = ({ id, lang, vacancyDetails, jobSummaryText }: any) => {
   );
 };
 
-export default JobSummary;
+export default JobSummarySection;
