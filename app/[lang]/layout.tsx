@@ -34,7 +34,7 @@ export default function RootLayout({
         <Toaster
           position='top-center'
           reverseOrder={false}
-          containerStyle={{ flexWrap: 'nowrap' }}
+          containerStyle={{ flexWrap: 'nowrap', flexDirection: 'row' }}
         />
       </body>
     </html>
