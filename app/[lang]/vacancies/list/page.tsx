@@ -33,7 +33,7 @@ const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
               id={item?.id}
               key={index}
               title={item?.titleEn}
-              location={item?.location}
+              location={item?.locationEn}
               discover={page.vacanciesList.discover}
               lang={lang}
             />
