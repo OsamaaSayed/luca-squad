@@ -1,6 +1,6 @@
 {
   "navigationLinks": [
-    { "label": "Home", "path": "/" },
+    { "label": "Home", "path": "" },
     { "label": "About Us", "path": "/about" },
     { "label": "Vacancies", "path": "/vacancies" },
     { "label": "Contact Us", "path": "/contact" }

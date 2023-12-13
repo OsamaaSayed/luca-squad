@@ -96,7 +96,6 @@ export default async function Home({
               <ContactBox
                 key={item.title}
                 item={item}
-                href={item.href}
               />
             ))}
 

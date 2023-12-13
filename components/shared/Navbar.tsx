@@ -51,7 +51,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
                 isActive ? 'border-b-2' : ''
               } ${index == 0 ? 'ml-auto' : ''}`}
             >
-              <Link href={`/${lang}/${item.path}`}>{item.label}</Link>
+              <Link href={`/${lang}${item.path}`}>{item.label}</Link>
             </li>
           );
         })}
@@ -59,7 +59,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
         <li className='ml-auto mr-2 xs:mr-6 '>
           <Link
             href={redirectedPathName(lang == 'en' ? 'it' : 'en')}
-            className='flex gap-2 rounded-md  px-3 py-2 text-white  max-sm:text-sm '
+            className='flex items-center gap-2 rounded-md px-3 py-2 text-white  max-sm:text-sm '
           >
             <Image
               src='svg/language.svg'
