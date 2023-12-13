@@ -4,10 +4,9 @@ import { Item } from '@/types/global';
 
 type ContactBoxProps = {
   item: Item;
-  href: string;
 };
 
-const ContactBox = ({ item, href }: ContactBoxProps) => {
+const ContactBox = ({ item }: ContactBoxProps) => {
   return (
     <div className='flex w-[285px] items-center'>
       <div className='p-4'>
@@ -16,13 +15,14 @@ const ContactBox = ({ item, href }: ContactBoxProps) => {
           alt='icon'
           width={36}
           height={36}
+          className='min-w-[36px]'
         />
       </div>
 
       <div className='border-l-2 border-ls-primary p-3'>
         <h4 className='text-lg font-semibold uppercase'>{item.title}</h4>
         <a
-          href={href}
+          href={item.href}
           target='_blank'
           className='hover:underline'
         >
