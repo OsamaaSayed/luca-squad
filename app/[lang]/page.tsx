@@ -40,14 +40,14 @@ export default async function Home({
                 className='hidden h-20 w-1 delay-1000 duration-500 ease-in-out animate-in fade-in-0 zoom-in-0 fill-mode-both md:inline-block'
               />
               <Image
-                src='svg/luca.svg'
+                src='/svg/luca.svg'
                 alt='luca'
                 width={260}
                 height={80}
                 className='delay-1500 duration-500 ease-in-out animate-in fade-in slide-in-from-left fill-mode-both'
               />
               <Image
-                src='svg/squad.svg'
+                src='/svg/squad.svg'
                 alt='squad'
                 width={325}
                 height={100}

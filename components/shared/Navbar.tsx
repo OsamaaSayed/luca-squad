@@ -62,7 +62,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
             className='flex items-center gap-2 rounded-md px-3 py-2 text-white  max-sm:text-sm '
           >
             <Image
-              src='svg/language.svg'
+              src='/svg/language.svg'
               width={24}
               height={24}
               alt='language icon'
