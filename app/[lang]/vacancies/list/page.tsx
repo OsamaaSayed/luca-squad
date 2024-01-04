@@ -1,14 +1,15 @@
 import Header from '@/components/shared/Header';
-import React from 'react';
 import JobComponent from './components/JobComponent';
-import { Locale } from '@/i18n.config';
+
 import { getDictionary } from '@/lib/dictionary';
+import { Locale } from '@/i18n.config';
 
 async function getVacancies() {
   const res = await fetch(
-    'https://sbtechnology-001-site85.atempurl.com/api/Vacancies/GetAllVacancies',
+    'http://sbtechnology-001-site91.atempurl.com/api/Vacancies/GetAllVacancies',
     { cache: 'no-store' },
   );
+
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -24,8 +25,9 @@ const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
     <>
       <Header
         bgImage='/images/vacancies/vacancies-bg.jpg'
-        title={page.vacanciesList.title}
-      ></Header>
+        title={page?.vacanciesList?.title}
+      />
+
       <section className='container mx-auto py-10 '>
         {vacancies?.result?.map((item: any, index: number) => {
           return (
@@ -34,7 +36,7 @@ const page = async ({ params: { lang } }: { params: { lang: Locale } }) => {
               key={index}
               title={item?.titleEn}
               location={item?.locationEn}
-              discover={page.vacanciesList.discover}
+              discover={page?.vacanciesList?.discover}
               lang={lang}
             />
           );

@@ -24,17 +24,18 @@ const Vacancies = async ({
     <>
       <Header
         bgImage='/images/vacancies/vacancies-bg.jpg'
-        title={page.vacancies.title}
+        title={page?.vacancies?.title}
       ></Header>
 
       <JoinSection
-        articlesList={page.vacancies.articles}
-        subTitleP1={page.vacancies.subTitleP1}
-        subTitleP2={page.vacancies.subTitleP2}
+        articlesList={page?.vacancies?.articles}
+        subTitleP1={page?.vacancies?.subTitleP1}
+        subTitleP2={page?.vacancies?.subTitleP2}
       />
+      
       <Discover
         lang={lang}
-        discover={page.vacancies.discover}
+        discover={page?.vacancies?.discover}
       />
     </>
   );

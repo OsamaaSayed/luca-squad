@@ -1,8 +1,7 @@
 'use client';
-
-import React from 'react';
-import { Locale } from '@/i18n.config';
 import Link from 'next/link';
+
+import { Locale } from '@/i18n.config';
 
 type DiscoverProps = {
   discover: string;

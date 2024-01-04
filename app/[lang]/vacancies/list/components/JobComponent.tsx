@@ -7,6 +7,7 @@ type JobComponentProps = {
   discover: string;
   lang: string;
 };
+
 const JobComponent = ({
   id,
   title,
@@ -20,8 +21,9 @@ const JobComponent = ({
         <h1 className='text-2xl text-black'>{title}</h1>
         <p className='text[#7A7A7A] text-lg'>{location}</p>
       </div>
+
       <Link
-        className='bg-main h-10 bg-ls-primary text-white px-10 py-2.5 text-center max-xs:mt-3 block'
+        className='bg-main block h-10 bg-ls-primary px-10 py-2.5 text-center text-white max-xs:mt-3'
         href={`/${lang}/vacancies/${id}`}
       >
         {discover}
