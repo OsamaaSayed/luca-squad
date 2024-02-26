@@ -17,10 +17,10 @@ const Footer = () => {
 
         <a
           className='hover:underline'
-          href='https://goo.gl/maps/jqTi2D8nR9XeXRk1A'
+          href='https://maps.app.goo.gl/MKnWbxuUY2cHbysr8'
           target='_blank'
         >
-          Via della Guastalla, 11-20122 Milano (Mi)
+          Piazzetta Guastalla 11, Milano(MI), 20122
         </a>
         <a
           className='block hover:underline'

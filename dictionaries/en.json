@@ -52,8 +52,8 @@
         {
           "url": "/svg/home/address-2.svg",
           "title": "OUR ADDRESS",
-          "body": "Via della Guastalla, 11-20122 Milano (MI)",
-          "href": "https://goo.gl/maps/jqTi2D8nR9XeXRk1A"
+          "body": "Piazzetta Guastalla 11, Milano(MI), 20122",
+          "href": "https://maps.app.goo.gl/MKnWbxuUY2cHbysr8"
         },
         {
           "url": "/svg/home/email.svg",
@@ -120,7 +120,7 @@
       "contactInfo": {
         "title": "We Will Be Happy To Welcome You And Provide You With All Necessary Information.",
         "paragraph": "Alternatively, you can contact us through the following methods:",
-        "findUs": "You Can Find Us At Our Office Located At Via Della Guastalla, 11-20122 Milano (Mi)."
+        "findUs": "You Can Find Us At Our Office Located At Piazzetta Guastalla 11, Milano(MI), 20122."
       },
       "contactForm": {
         "placeholders": {
